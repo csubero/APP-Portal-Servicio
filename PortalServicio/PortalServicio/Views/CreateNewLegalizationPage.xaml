@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             x:Class="PortalServicio.Views.CreateNewLegalizationPage"
+             xmlns:local="clr-namespace:PortalServicio" 
+             Title="Crear nueva legalización">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:DicLegalizationType x:Key="DicLegalizationType"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Style="{StaticResource background}" VerticalOptions="FillAndExpand">
+            <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,10,10,0"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Tipo" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" />
+                    <Picker ItemsSource="{Binding LegalizationTypeList}" SelectedIndex="{Binding ToAdd.LegalizationType, Converter={StaticResource DicLegalizationType}}" ItemDisplayBinding="{Binding Key}" Title="Tipo de Legalización" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" />
+                    <Label Text="Monto Solicitado" Grid.Column="0" Grid.Row="1" />
+                    <Entry Text="{Binding ToAdd.MoneyRequested, Mode=TwoWay}" Placeholder="Monto Solicitado" Keyboard="Numeric" Grid.Column="1" Grid.Row="1" />
+                    <ActivityIndicator IsRunning="{Binding IsLoadingCurrencies}" IsVisible="{Binding IsLoadingCurrencies}" HeightRequest="40" Grid.Column="2" Grid.Row="1" />
+                    <Picker ItemsSource="{Binding AvailableCurrencies}" ItemDisplayBinding="{Binding Symbol}" SelectedItem="{Binding ToAdd.MoneyCurrency, Mode=TwoWay}" Title="Divisa" IsVisible="False" Grid.Column="2" Grid.Row="1" >
+                        <Picker.Triggers>
+                            <DataTrigger TargetType="Picker" Binding="{Binding IsLoadingCurrencies}" Value="False">
+                                <Setter Property="IsVisible" Value="True"/>
+                            </DataTrigger>
+                        </Picker.Triggers>
+                    </Picker>
+                    <Label Text="Últimos 4 dígitos de tarjeta" IsVisible="False" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" VerticalTextAlignment="Center">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding ToAdd.LegalizationType}" Value="TarjetaEmpresarial">
+                                <Setter Property="IsVisible" Value="True"/>
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                    <Entry Text="{Binding ToAdd.LastCreditCardDigits, Mode=TwoWay}" IsVisible="False" Placeholder="XXXX" Grid.Column="2" Grid.Row="2">
+                        <Entry.Triggers>
+                            <DataTrigger TargetType="Entry" Binding="{Binding ToAdd.LegalizationType}" Value="TarjetaEmpresarial">
+                                <Setter Property="IsVisible" Value="True"/>
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <Label Text="Empresa" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="3" />
+                    <ActivityIndicator HeightRequest="40" Grid.Row="3" Grid.Column="1" IsRunning="{Binding IsLoadingCompanies}" IsVisible="{Binding IsLoadingCompanies}" />
+                    <Picker ItemsSource="{Binding AvailableCompanies}" IsVisible="False" SelectedItem="{Binding ToAdd.Company, Mode=TwoWay}" ItemDisplayBinding="{Binding Name}" Title="Seleccionar Empresa" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3">
+                        <Picker.Triggers>
+                            <DataTrigger TargetType="Picker" Binding="{Binding IsLoadingCompanies}" Value="False">
+                                <Setter Property="IsVisible" Value="True"/>
+                            </DataTrigger>
+                        </Picker.Triggers>
+                    </Picker>
+                    <Label Text="Relacionado a" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="4" />
+                    <Picker Title="Seleccione relación" SelectedIndex="{Binding SelectedRelation, Mode=TwoWay}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Nada</x:String>
+                                <x:String>Caso</x:String>
+                                <x:String>CDT</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <!--CDT Link Area-->
+                    <StackLayout IsVisible="False" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5">
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding SelectedRelation}" Value="2">
+                                <Setter Property="IsVisible" Value="True"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Ingrese número de CDT a relacionar y presione buscar para confirmar" HorizontalTextAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
+                            <SearchBar Text="{Binding CDTSearchText, Mode=TwoWay}" HeightRequest="50" TextChanged="CDTSearchText_Changed" SearchCommand="{Binding SearchCDTRelationCommand}" Placeholder="CDT" Grid.Column="0" Grid.Row="1" />
+                            <ActivityIndicator IsRunning="{Binding IsSearchingRelation}" IsVisible="{Binding IsSearchingRelation}" Grid.Column="1" Grid.Row="1" WidthRequest="35" HeightRequest="35"/>
+                            <Image IsVisible="{Binding IsRelatedCDTChosen}" Source="{local:EmbeddedImage correcticon.png}" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Aspect="AspectFit" WidthRequest="35" HeightRequest="35"/>
+                        </Grid>
+                        <!--Service Ticket Link Area-->
+                    </StackLayout>
+                    <!--Incident Link Area-->
+                    <StackLayout IsVisible="False" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5">
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding SelectedRelation}" Value="1">
+                                <Setter Property="IsVisible" Value="True"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Ingrese número de Caso a relacionar y presione buscar para confirmar" HorizontalTextAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
+                            <SearchBar Text="{Binding IncidentSearchText, Mode=TwoWay}" HeightRequest="50" TextChanged="IncidentSearchText_Changed" SearchCommand="{Binding SearchIncidentRelationCommand}" Placeholder="Caso" Grid.Column="0" Grid.Row="1" />
+                            <ActivityIndicator IsRunning="{Binding IsSearchingRelation}" IsVisible="{Binding IsSearchingRelation}" Grid.Column="1" Grid.Row="1" WidthRequest="35" HeightRequest="35"/>
+                            <Image IsVisible="{Binding IsRelatedIncidentChosen}" Source="{local:EmbeddedImage correcticon.png}" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Aspect="AspectFit" WidthRequest="35" HeightRequest="35"/>
+                        </Grid>
+                    </StackLayout>
+                    <Label Text="¿Es un imprevisto de proyecto?" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" VerticalTextAlignment="Center" />
+                    <Switch IsToggled="{Binding ToAdd.ProjectIssue, Mode=TwoWay}" Grid.Column="2" Grid.Row="6" />
+                    <Label Text="Detalle" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="7" />
+                    <ctrl:GlassEditor Text="{Binding ToAdd.Detail, Mode=TwoWay}" Placeholder="Ingrese detalle de la legalización" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="8" FontSize="Medium" VerticalOptions="FillAndExpand"/>
+                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding CreateLegalizationCommand}" Source="{local:EmbeddedImage saveicon.png}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="9"  HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

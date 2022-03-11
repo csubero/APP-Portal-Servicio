@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             x:Class="PortalServicio.UnsignedContractPage"
+             xmlns:sig="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             Title="{Binding ContractNumber, StringFormat='Contrato No. {0}'}">
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Contratista" Style="{StaticResource title}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" />
+                        <Label Text="Nombre" FontSize="Medium" WidthRequest="90" Grid.Row="1" Grid.Column="0" MinimumWidthRequest="75" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="{Binding Contractor.Name}" FontSize="Medium" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" />
+                        <Label Text="Dirección" FontSize="Medium" WidthRequest="90" Grid.Row="2" Grid.Column="0" MinimumWidthRequest="75" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="{Binding Contractor.Address}" FontSize="Medium" Grid.Row="2" Grid.Column="1"  HorizontalOptions="Start"  VerticalOptions="Center"/>
+                        <Label Text="Telefono" FontSize="Medium" WidthRequest="90" Grid.Row="3" Grid.Column="0" MinimumWidthRequest="75" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="{Binding Contractor.Phone}" FontSize="Medium" Grid.Row="3" Grid.Column="1"  HorizontalOptions="Start"  VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0" 
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Resumen de contrato" Style="{StaticResource title}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" />
+                        <Label Text="Monto" FontSize="Medium" FontAttributes="Bold" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" WidthRequest="90" HorizontalOptions="Start"/>
+                        <Label Text="{Binding AmountTotalFormatted}" FontSize="Medium" Grid.Row="1" Grid.Column="1" VerticalOptions="Center"/>
+                        <Label Text="Condiciones" FontSize="Medium" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" VerticalOptions="Center" WidthRequest="90" />
+                        <Label Text="{Binding Payment.Description}" Grid.Row="2" Grid.Column="1" FontSize="Medium" VerticalOptions="Center" />
+                        <Label Text="CDT" FontSize="Medium" FontAttributes="Bold" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" WidthRequest="90" />
+                        <Label Text="{Binding Cdt.Number}" FontSize="Medium" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" />
+                        <Label Text="Inicia" FontSize="Medium" FontAttributes="Bold" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" WidthRequest="90" />
+                        <Label Text="{Binding StartDate,StringFormat='{0:dd}/{0:MM}/{0:yyyy}'}" FontSize="Medium" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" />
+                        <Label Text="Finaliza" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" WidthRequest="90" />
+                        <Label Text="{Binding FinishDate,StringFormat='{0:dd}/{0:MM}/{0:yyyy}'}" FontSize="Medium" Grid.Row="5" Grid.Column="1" VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+                <Frame
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0" 
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <StackLayout>
+                        <Label Text="Trabajadores Aprobados" Style="{StaticResource title}" HorizontalOptions="Center" />
+                        <StackLayout Spacing="0">
+                            <ListView ItemsSource="{Binding Workers}" VerticalOptions="Center" ItemSelected="Handle_WorkerTapped" HasUnevenRows="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                        <ViewCell.View>
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout WidthRequest="4" Margin="8,3,5,3" BackgroundColor="{Binding Accepted, Converter={StaticResource TriStateColorConverter}}"/>
+                                                <StackLayout>
+                                                    <Label Text="{Binding Name}"
+                                       Style="{StaticResource clickable}"
+                                       FontSize="Large"
+                                       Margin="10,10,0,0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                                    <Label Text="{Binding Identification, StringFormat='Identificación: {0}'}"
+                                   FontSize="Medium"
+                                    Margin="10,0,0,10"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </ViewCell.View>
+                                    </local:ExtendedViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame x:Name="SignContainer"
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0" 
+               CornerRadius="10" IsVisible="False">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <StackLayout>
+                        <Label Text="Firma" Style="{StaticResource title}" HorizontalOptions="Center"/>
+                        <sig:SignaturePadView
+                    x:Name="signature"
+                    StrokeWidth="3"
+                    StrokeColor="Black"
+                    ClearText="Borrar"
+                    CaptionText="Firma del contratista"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="White"     
+                    WidthRequest="300"
+                    HeightRequest="150"/>
+                        <Image x:Name="BtnSignContract" Source="{local:EmbeddedImage okicon.png}" Aspect="AspectFit" HorizontalOptions="Center" Margin="10" WidthRequest="50" HeightRequest="50"/>
+                    </StackLayout>
+                </Frame>
+                <Image x:Name="BtnViewContract" Source="{local:EmbeddedImage docicon.png}" Aspect="AspectFit" HorizontalOptions="Center" Margin="10" WidthRequest="50" HeightRequest="50"/>
+            </StackLayout>
+        </ScrollView>
+        <ActivityIndicator x:Name="loadingIndicator" Style="SecondaryColor" AbsoluteLayout.LayoutBounds="0.5,0.5,0.33,0.33" AbsoluteLayout.LayoutFlags="All" IsVisible="False" IsRunning="True"/>
+    </AbsoluteLayout>
+</ContentPage>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             x:Class="PortalServicio.XRChecklistCalibration">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:DicConvertRadState x:Key="DicConvertRadState"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,10,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Tipo de test de Calibración" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Cuña escalonada" FontSize="Medium"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" FontAttributes="Bold"/>
+                        <Switch IsToggled="{Binding Ticket.RXCalType1, Mode=TwoWay}" Grid.Column="3" Grid.Row="2"/>
+                        <Label Text="Maletín de pruebas" FontSize="Medium" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"  FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXCalType2, Mode=TwoWay}" Grid.Column="3" Grid.Row="3" />
+                        <Label Text="Cuerpo de calibración 1 y 2" FontSize="Medium" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXCalType3, Mode=TwoWay}" Grid.Column="3" Grid.Row="4" />
+                        <Label Text="Calibración por software" FontSize="Medium" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXCalType4, Mode=TwoWay}" Grid.Column="3" Grid.Row="5" />
+                    </Grid>
+                </Frame>
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Desempeño de equipo" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Penetración de acero" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXCalSteelPenetration, Mode=TwoWay}" Placeholder="Ej: 123" Grid.Column="2" Grid.Row="1"/>
+                        <Label Text="mm" FontSize="Medium" Grid.Column="3" Grid.Row="1" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="Resolución de alambre" FontSize="Medium" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXCalWireResolution, Mode=TwoWay}" Placeholder="Ej: 123" Grid.Column="2" Grid.Row="2"/>
+                        <Label Text="AWG" FontSize="Medium" Grid.Column="3" Grid.Row="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Cumplimiento de calibración" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Estado" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_RadStateList}" Title="Estado" SelectedIndex="{Binding Ticket.RXCalCalibrationState, Converter={StaticResource DicConvertRadState}}" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <ActivityIndicator x:Name="loadingIndicator" Style="SecondaryColor" AbsoluteLayout.LayoutBounds="0.5,0.5,0.33,0.33" AbsoluteLayout.LayoutFlags="All" IsVisible="False" IsRunning="True"/>
+    </AbsoluteLayout>
+</ContentPage>

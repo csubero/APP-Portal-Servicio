@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"  
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             x:Class="PortalServicio.XRChecklistGeneral"
+             x:Name="test">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:DicConvertVisitNumber x:Key="DicConvertVisitNumber"/>
+            <convert:DicConvertHWState x:Key="DicConvertHWState"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Información General" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Modelo" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="1" FontAttributes="Bold"/>
+                        <Entry Text="{Binding Ticket.RXGenModel, Mode=TwoWay}" Placeholder="Modelo de equipo RX" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"/>
+                        <Label Text="N° Serie" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="2" FontAttributes="Bold"/>
+                        <Entry Text="{Binding Ticket.RXGenSerial, Mode=TwoWay}" Placeholder="Número de serie" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"/>
+                        <Label Text="Fabricación" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" FontAttributes="Bold"/>
+                        <Picker SelectedItem="{Binding Ticket.RXGenCreationDateMonth}" Title="Mes" Grid.Column="2" Grid.Row="3" VerticalOptions="Center">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Enero</x:String>
+                                    <x:String>Febrero</x:String>
+                                    <x:String>Marzo</x:String>
+                                    <x:String>Abril</x:String>
+                                    <x:String>Mayo</x:String>
+                                    <x:String>Junio</x:String>
+                                    <x:String>Julio</x:String>
+                                    <x:String>Agosto</x:String>
+                                    <x:String>Septiembre</x:String>
+                                    <x:String>Octubre</x:String>
+                                    <x:String>Noviembre</x:String>
+                                    <x:String>Diciembre</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Picker SelectedItem="{Binding Ticket.RXGenCreationDateYear}" Title="Año" Grid.Column="3" Grid.Row="3" VerticalOptions="Center">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>2000</x:String>
+                                    <x:String>2001</x:String>
+                                    <x:String>2002</x:String>
+                                    <x:String>2003</x:String>
+                                    <x:String>2004</x:String>
+                                    <x:String>2005</x:String>
+                                    <x:String>2006</x:String>
+                                    <x:String>2007</x:String>
+                                    <x:String>2008</x:String>
+                                    <x:String>2009</x:String>
+                                    <x:String>2010</x:String>
+                                    <x:String>2011</x:String>
+                                    <x:String>2012</x:String>
+                                    <x:String>2013</x:String>
+                                    <x:String>2014</x:String>
+                                    <x:String>2015</x:String>
+                                    <x:String>2016</x:String>
+                                    <x:String>2017</x:String>
+                                    <x:String>2018</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Label Text="N° de visita" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" FontAttributes="Bold"/>
+                        <Picker ItemsSource="{Binding Dic_VisitNumberList}" SelectedIndex="{Binding Ticket.RXGenVisitNumber, Converter={StaticResource DicConvertVisitNumber}}" Title="Número visita" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2"/>
+                        <Label Text="Estado en el que encuentra el equipo" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" FontAttributes="Bold"/>
+                        <Picker ItemsSource="{Binding Dic_HWStateList}" SelectedIndex="{Binding Ticket.RXGenHWState, Converter={StaticResource DicConvertHWState}}" Title="Estado del equipo" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2"/>
+                        <Label Text="Área despejada para trabajar" FontSize="Medium" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXGenCleanArea, Mode=TwoWay}" Grid.Column="3" Grid.Row="7" />
+                    </Grid>
+                </Frame>
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Observaciones y estado final" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <ctrl:GlassEditor Text="{Binding Ticket.RXGenComments, Mode=TwoWay}" Placeholder="Ingrese sus observaciones" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4"/>
+                        </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <ActivityIndicator x:Name="loadingIndicator" Style="SecondaryColor" AbsoluteLayout.LayoutBounds="0.5,0.5,0.33,0.33" AbsoluteLayout.LayoutFlags="All" IsVisible="False" IsRunning="True"/>
+    </AbsoluteLayout>
+</ContentPage>

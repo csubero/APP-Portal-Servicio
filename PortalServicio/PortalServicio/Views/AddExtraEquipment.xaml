@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:local="clr-namespace:PortalServicio"        
+             x:Class="PortalServicio.Views.AddExtraEquipment">
+    <!--Animations use example-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <convert:DicConvertProcessType x:Key="DicConvertProcessType"/>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    <pages:PopupPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                    <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                        </Frame.HasShadow>
+                        <StackLayout>
+                            <!--Seleccion de equipo-->
+                            <StackLayout IsVisible="False">
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout" Binding="{Binding Phase}" Value="0">
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                                <Label Text="Seleccionar equipo adicional"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+                                <SearchBar Text="{Binding SearchText, Mode=TwoWay}" SearchCommand="{Binding SearchProductCommand}" Placeholder="Id o Nombre del Producto" HeightRequest="50" BackgroundColor="White"/>
+                                <ListView ItemsSource="{Binding AvailableProducts, Mode=TwoWay}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" ItemSelected="SelectProduct" HeightRequest="250" HasUnevenRows="True" >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                                <ViewCell.View>
+                                                    <StackLayout>
+                                                        <Label Text="{Binding Id}"
+                                       TextColor="#001871" 
+                                       FontSize="Medium"
+                                       Margin="10,5,0,0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                                        <Label Text="{Binding Name}"
+                                   FontSize="Medium"
+                                    Margin="10,0,0,5"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start"/>
+                                                    </StackLayout>
+                                                </ViewCell.View>
+                                            </local:ExtendedViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <ctrl:ImageButton IsBusy="{Binding IsBusy}" IsActivated="{Binding IsProductSelected}" Command="{Binding NextPhaseCommand}" Source="{local:EmbeddedImage righticon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                            </StackLayout>
+                            <!--Determinar la cantidad de equipo adicional-->
+                            <StackLayout IsVisible="False">
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout" Binding="{Binding Phase}" Value="1">
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                                <Label Text="{Binding ToAdd.Equipment.Id, StringFormat='Seleccionado equipo con ID {0}'}"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+                                <Label Text="Cantidad" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+                                <ctrl:StyledStepper Value="{Binding ToAdd.Quantity,Mode=TwoWay}" StepperColor="#3399ff" Minimum="1" HorizontalOptions="Center"/>
+                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="10">
+                                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding PreviousPhaseCommand}" Source="{local:EmbeddedImage lefticon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding NextPhaseCommand}" Source="{local:EmbeddedImage righticon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <!--Determinar tipo de proceso-->
+                            <StackLayout IsVisible="False">
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout" Binding="{Binding Phase}" Value="2">
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                                <Label Text="Determine el tipo de proceso para este equipo"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+                                <Label Text="Tipo de proceso" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+                                <Picker Title="Tipo de proceso" ItemsSource="{Binding ProcessTypeList}" SelectedIndex="{Binding ToAdd.ProcessType, Converter={StaticResource DicConvertProcessType}}" ItemDisplayBinding="{Binding Key}" SelectedIndexChanged="CheckProcessType" />
+                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="10">
+                                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding PreviousPhaseCommand}" Source="{local:EmbeddedImage lefticon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" IsActivated="{Binding IsProcessTypeSelected}" Command="{Binding NextPhaseCommand}" Source="{local:EmbeddedImage righticon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <!--Razón de no cobro de equipo (solo si tipo de proceso = no se cobra)-->
+                            <StackLayout IsVisible="False">
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout" Binding="{Binding Phase}" Value="3">
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                                <Label Text="Razón por la cual no se cobra el equipo"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+                                <Label Text="Motivo o razón" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+                                <ctrl:GlassEditor Text="{Binding ToAdd.Reason, Mode=TwoWay}" Placeholder="Ingrese el motivo" FontSize="Medium" VerticalOptions="FillAndExpand"/>
+                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="10">
+                                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding PreviousPhaseCommand}" Source="{local:EmbeddedImage lefticon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding NextPhaseCommand}" Source="{local:EmbeddedImage righticon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <!--Resumen y confirmación-->
+                            <StackLayout IsVisible="False">
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout" Binding="{Binding Phase}" Value="4">
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Resumen" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+                                    <Label Text="Equipo Seleccionado" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+                                    <Label Text="{Binding ToAdd.Equipment.Id, StringFormat='Id: {0}'}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="#001871" FontSize="Medium" Margin="10,5,0,0" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding ToAdd.Equipment.Name}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" FontSize="Medium" Margin="10,0,0,5" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding ToAdd.Quantity, Mode=OneWay, StringFormat='Se solicita {0} unidades'}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding ToAdd.Quantity, Mode=OneWay}" Value="1">
+                                                <Setter Property="Text" Value="Se solicita 1 unidad"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <Label Text="No se definió tipo de proceso" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" FontSize="Medium" Margin="10,5,0,0" VerticalOptions="Center" HorizontalTextAlignment="Center">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding ToAdd.ProcessType, Mode=OneWay}" Value="Order">
+                                                <Setter Property="Text" Value="Se realiza pedido"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding ToAdd.ProcessType, Mode=OneWay}" Value="Offer">
+                                                <Setter Property="Text" Value="Se realiza oferta"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding ToAdd.ProcessType, Mode=OneWay}" Value="Free">
+                                                <Setter Property="Text" Value="No se cobra"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Spacing="10">
+                                        <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding PreviousPhaseCommand}" Source="{local:EmbeddedImage lefticon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                                        <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding AddExtraEquipmentCommand}" Source="{local:EmbeddedImage okicon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="loadingIndicator" BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy}">
+                <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" IsRunning="{Binding IsBusy}"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </pages:PopupPage.Content>
+</pages:PopupPage>

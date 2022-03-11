@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.AddProductPopUpPage"
+             xmlns:local="clr-namespace:PortalServicio"
+             CloseWhenBackgroundIsClicked="False">
+    <!--Animations use example-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <convert:DestinationConverter x:Key="DestinationConverter"/>
+            <convert:TreatmentConverter x:Key="TreatmentConverter"/>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    <pages:PopupPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                    <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                        </Frame.HasShadow>
+                        <StackLayout>
+                            <Label Text="Agregar nuevo producto"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+                            <SearchBar Text="{Binding SearchText, Mode=TwoWay}" SearchCommand="{Binding SearchProductCommand}" Placeholder="Id o Nombre del Producto" HeightRequest="50" BackgroundColor="White"/>
+                            <ListView ItemsSource="{Binding AvailableProducts, Mode=TwoWay}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" ItemSelected="SelectProduct" HeightRequest="250" HasUnevenRows="True" >
+                                <ListView.Triggers>
+                                    <DataTrigger TargetType="ListView" Binding="{Binding IsProductSelected}" Value="True">
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="ListView" Binding="{Binding IsProductSelected}" Value="False">
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </DataTrigger>
+                                </ListView.Triggers>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                            <ViewCell.View>
+                                                <StackLayout>
+                                                    <Label Text="{Binding Id}"
+                                       TextColor="#001871" 
+                                       FontSize="Medium"
+                                       Margin="10,5,0,0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                                    <Label Text="{Binding Name}"
+                                   FontSize="Medium"
+                                    Margin="10,0,0,5"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start"/>
+                                                </StackLayout>
+                                            </ViewCell.View>
+                                        </local:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Grid>
+                                <Grid.Triggers>
+                                    <DataTrigger TargetType="Grid" Binding="{Binding IsProductSelected, Mode=OneWay}" Value="True">
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Grid" Binding="{Binding IsProductSelected, Mode=OneWay}" Value="False">
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                </Grid.Triggers>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Producto Seleccionado" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+                                <Label Text="{Binding ToAdd.Product.Id}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="#001871" FontSize="Medium" Margin="10,5,0,0" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                <Label Text="{Binding ToAdd.Product.Name}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" FontSize="Medium" Margin="10,0,0,5" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                <Label Text="Cantidad" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+                                <ctrl:StyledStepper Value="{Binding ToAdd.Count,Mode=TwoWay}" StepperColor="#3399ff" Minimum="1" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
+                                <Label Text="Tratamiento" Grid.Column="0" Grid.Row="6" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Picker Title="Tratamiento" ItemsSource="{Binding TreatmentList}" SelectedIndex="{Binding ToAdd.Treatment, Converter={StaticResource TreatmentConverter}}" ItemDisplayBinding="{Binding Key}" SelectedIndexChanged="SelectionMade"  Grid.Column="1" Grid.Row="6"/>
+                                <Label Text="Destino" Grid.Column="0" Grid.Row="7" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding IsDesmonteSelected, Mode=OneWay}" Value="True">
+                                            <Setter Property="IsVisible" Value="True"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding IsDesmonteSelected, Mode=OneWay}" Value="False">
+                                            <Setter Property="IsVisible" Value="False"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Picker Title="Destino" ItemsSource="{Binding DestinationList}" SelectedIndex="{Binding ToAdd.Destination, Converter={StaticResource DestinationConverter}}" ItemDisplayBinding="{Binding Key}" SelectedIndexChanged="CheckDestination" Grid.Column="1" Grid.Row="7">
+                                    <Picker.Triggers>
+                                        <DataTrigger TargetType="Picker" Binding="{Binding IsDesmonteSelected, Mode=OneWay}" Value="True">
+                                            <Setter Property="IsVisible" Value="True"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Picker" Binding="{Binding IsDesmonteSelected, Mode=OneWay}" Value="False">
+                                            <Setter Property="IsVisible" Value="False"/>
+                                        </DataTrigger>
+                                    </Picker.Triggers>
+                                </Picker>
+                                <Label Text="Número de serie" Grid.Column="0" Grid.Row="8" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Entry Text="{Binding ToAdd.Serials, Mode=TwoWay}" Grid.Column="1" Grid.Row="8" VerticalOptions="Center" Placeholder="Número de serie" />
+                                <Label Text="Número de solicitud" Grid.Column="0" Grid.Row="9" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Entry Text="{Binding ToAdd.RequestNumber, Mode=TwoWay}" Grid.Column="1" Grid.Row="9" VerticalOptions="Center" Placeholder="Solicitud" />
+                                <ctrl:ImageButton IsBusy="{Binding IsBusy}" IsActivated="{Binding IsInformationCorrect}" Command="{Binding AddProductCommand}" Source="{local:EmbeddedImage okicon.png}" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="loadingIndicator" BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy}">
+                <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" IsRunning="{Binding IsBusy}"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </pages:PopupPage.Content>
+</pages:PopupPage>

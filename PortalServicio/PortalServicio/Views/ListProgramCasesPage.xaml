@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             x:Class="PortalServicio.ListProgramCasesPage"
+             Title="Listado de Programación">
+    <AbsoluteLayout>
+        <StackLayout x:Name="LoadingContainer" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <SearchBar Text="{Binding SearchText, Mode=TwoWay}"
+                       BackgroundColor="White"
+                       PlaceholderColor="LightGray"
+                       Placeholder="Buscar caso o cliente"
+                       TextChanged="SearchTextChanged"
+                       HeightRequest="50"/>
+            <ListView ItemsSource="{Binding IncidentsFiltered}"
+                      SelectedItem="{Binding SelectedIncident, Mode=TwoWay}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding LoadIncidentsCommand}"
+                      IsRefreshing="{Binding IsLoading}"
+                      ItemSelected="Handle_ItemTapped"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
+                <ListView.Header>
+                    <Grid Margin="10,0,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Sin programar" VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
+                        <Switch Toggled="Filter_Toggle" IsToggled="{Binding ProgrammingPending, Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+                        <Label Text="Programado" VerticalOptions="Center" Grid.Row="0" Grid.Column="2"/>
+                        <Switch Toggled="Filter_Toggle" IsToggled="{Binding Programmed, Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+                        <Label Text="En Revisión" VerticalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+                        <Switch Toggled="Filter_Toggle" IsToggled="{Binding Reviewing, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+                        <Label Text="En Reproceso" VerticalOptions="Center" Grid.Row="1" Grid.Column="2"/>
+                        <Switch Toggled="Filter_Toggle" IsToggled="{Binding Reprocess, Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+                        <Label Text="Reprogramación" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
+                        <Switch Toggled="Filter_Toggle" IsToggled="{Binding Reprogramming, Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+                        <Label Text="Cotización" VerticalOptions="Center" Grid.Row="2" Grid.Column="2"/>
+                        <Switch Toggled="Filter_Toggle" IsToggled="{Binding List, Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout WidthRequest="4" Margin="8,3,5,3" BackgroundColor="{Binding ControlOption, Converter={StaticResource ColorConverter}}"/>
+                                    <StackLayout>
+                                        <Label Text="{Binding TicketNumber}"
+                                       Style="{StaticResource clickable}"
+                                       FontSize="Large"
+                                       Margin="10,10,0,0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Client.Alias}"
+                                   FontSize="Medium"
+                                    Margin="10,0,0,10"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </local:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" IsRunning="{Binding IsBusy}"/>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

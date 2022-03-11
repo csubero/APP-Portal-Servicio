@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.ProgramCasePage"
+             Title="{Binding SelectedIncident.TicketNumber, StringFormat='Programación de {0}'}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:DicConvertPayment x:Key="DicConvertPayment"/>
+            <convert:DicConvertControl x:Key="DicConvertControl"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Detalles del Caso" Style="{StaticResource title}" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Label Text="Opción de cobro:" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+                        <Picker Title="Opción de Cobro" ItemsSource="{Binding Dic_PaymentOptionsList}" SelectedIndex="{Binding SelectedIncident.PaymentOption, Converter={StaticResource DicConvertPayment}}" ItemDisplayBinding="{Binding Key}" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+                        <Label Text="Fecha de Programación:" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
+                        <DatePicker Date="{Binding SelectedIncident.ProgrammedDate, Mode=TwoWay}" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1">
+                            <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                            <DatePicker.MinimumDate>
+                                <sys:DateTime x:FactoryMethod="Parse">
+                                    <x:Arguments>
+                                        <x:String>Jan 1 2000</x:String>
+                                    </x:Arguments>
+                                </sys:DateTime>
+                            </DatePicker.MinimumDate>
+                            <DatePicker.MaximumDate>
+                                <sys:DateTime x:FactoryMethod="Parse">
+                                    <x:Arguments>
+                                        <x:String>Dec 31 2050</x:String>
+                                    </x:Arguments>
+                                </sys:DateTime>
+                            </DatePicker.MaximumDate>
+                        </DatePicker>
+                    </Grid>
+                </Frame>
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Ajuste de Programación" Style="{StaticResource title}" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Label Text="Técnico 1:" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+                        <Picker Title="Primer Técnico" ItemsSource="{Binding AvailableTechnicians}" SelectedItem="{Binding SelectedIncident.TechniciansAssigned[0]}" ItemDisplayBinding="{Binding Name}" Grid.Row="1" Grid.Column="1"/>
+                        <Label Text="Técnico 2:" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                        <Picker Title="Segundo Técnico" ItemsSource="{Binding AvailableTechnicians}" SelectedItem="{Binding SelectedIncident.TechniciansAssigned[1]}" ItemDisplayBinding="{Binding Name}" Grid.Row="2" Grid.Column="1"/>
+                        <Label Text="Técnico 3:" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+                        <Picker Title="Tercer Técnico" ItemsSource="{Binding AvailableTechnicians}" SelectedItem="{Binding SelectedIncident.TechniciansAssigned[2]}" ItemDisplayBinding="{Binding Name}" Grid.Row="3" Grid.Column="1"/>
+                        <Label Text="Control de atención" FontSize="Medium" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
+                        <Picker Title="Control de Atención" ItemsSource="{Binding Dic_ControlOptionsList}" SelectedIndex="{Binding SelectedIncident.ControlOption, Converter={StaticResource DicConvertControl}}" ItemDisplayBinding="{Binding Key}" Grid.Row="4" Grid.Column="1"/>
+                        <Label Text="Revisado" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center"/>
+                        <Switch IsToggled="{Binding SelectedIncident.Reviewed, Mode=TwoWay}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Notas adjuntas" 
+                               Style="{StaticResource title}"
+                               HorizontalTextAlignment="Center"
+                               Grid.Row="0" 
+                               Grid.Column="0"/>
+                        <ActivityIndicator HorizontalOptions="Center"
+                                           IsRunning="{Binding IsLoadingNotes}"
+                                           IsVisible="{Binding IsLoadingNotes}"
+                                           Grid.Row="1"    
+                                           Grid.Column="0"/>
+                        <ListView ItemsSource="{Binding Notes}"
+                              SelectedItem="{Binding SelectedNote, Mode=TwoWay}"
+                              ItemSelected="OpenNote"
+                              HasUnevenRows="True"
+                              SeparatorVisibility="None"
+                              Grid.Row="2"    
+                              Grid.Column="0"
+                              HeightRequest="{Binding NotesHeight}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                        <ViewCell.View>
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                                <Image Margin="3" Source="{Binding GetDownloadImage}" Aspect="AspectFit" HeightRequest="35" WidthRequest="35"/>
+                                                <Label Text="{Binding Filename}"
+                                       Style="{StaticResource clickable}"
+                                       FontSize="Medium"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                        </ViewCell.View>
+                                    </local:ExtendedViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </Frame>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <ctrl:ImageButton Command="{Binding SaveChangesCommand}" Source="{local:EmbeddedImage saveicon.png}" IsBusy="{Binding IsBusy}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" Margin="10,0,10,0"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" IsRunning="{Binding IsBusy}"/>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

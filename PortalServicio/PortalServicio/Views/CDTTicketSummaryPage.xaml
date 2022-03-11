@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:pages="clr-namespace:PortalServicio.Views"
+             xmlns:PullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             x:Class="PortalServicio.Views.CDTTicketSummaryPage"
+             Title="{Binding SelectedCDTTicket.Number, StringFormat='Boleta de CDT {0}'}"
+            x:Name="MasterPage">
+    <ContentPage Title="General">
+        <PullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+                                           RefreshCommand="{Binding ReloadCDTTicketCommand}"
+                                           IsRefreshing="{Binding IsRefreshing}"
+                                           RefreshColor="#3D55AF">
+            <ScrollView>
+                <StackLayout Style="{StaticResource background}" VerticalOptions="FillAndExpand">
+                    <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,10,10,0"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                        </Frame.HasShadow>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding SelectedCDTTicket.Number, StringFormat='Boleta {0}'}" Style="{StaticResource title}" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                            <Label Text="Entrada" FontSize="Medium" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"/>
+                            <Label Text="{Binding SelectedCDTTicket.Started, StringFormat='{0:dd/MM/yyyy, h\\:mm tt}'}" FontSize="Medium" Grid.Row="1" Grid.Column="1"/>
+                            <Label Text="Salida" FontSize="Medium" FontAttributes="Bold" Grid.Row="2" Grid.Column="0"/>
+                            <Label Text="{Binding SelectedCDTTicket.Finished, StringFormat='{0:dd/MM/yyyy, h\\:mm tt}'}" FontSize="Medium" Grid.Row="2" Grid.Column="1">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding SelectedCDTTicket.IsOpen}" Value="True">
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <!--This is for unfinished visits-->
+                            <Label Text="{Binding EllapsedTime, StringFormat='Estimado {0:d\\.hh\\:mm\\:ss}'}" IsVisible="{Binding SelectedCDTTicket.IsOpen}" FontSize="Medium" Grid.Row="2" Grid.Column="1" />
+                            <Label Text="Correo" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
+                            <Label Text="{Binding SelectedCDTTicket.Email}" FontSize="Medium" Grid.Row="4" Grid.Column="1">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding SelectedCDTTicket.IsOpen}" Value="True">
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <!--This is for unfinished visits-->
+                            <Entry Keyboard="Email" Text="{Binding SelectedCDTTicket.Email,Mode=TwoWay}" IsVisible="{Binding SelectedCDTTicket.IsOpen}" Placeholder="Correo de informe" Grid.Row="4" Grid.Column="1" />
+                            <Label Text="Trabajos Realizados" Style="{StaticResource title}" HorizontalTextAlignment="Center" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <ctrl:GlassEditor Text="{Binding SelectedCDTTicket.Workdone, Mode=TwoWay}" IsVisible="{Binding SelectedCDTTicket.IsOpen}" Placeholder="Ingrese Trabajos Realizados" FontSize="Medium" VerticalOptions="FillAndExpand" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <Label LineBreakMode="WordWrap" Text="{Binding SelectedCDTTicket.Workdone}" FontSize="Medium" VerticalOptions="FillAndExpand" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding SelectedCDTTicket.IsOpen}" Value="True">
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <Label Text="Acuerdos" Style="{StaticResource title}" HorizontalOptions="Center" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" />
+                            <ctrl:GlassEditor Text="{Binding SelectedCDTTicket.Agreements, Mode=TwoWay}" IsVisible="{Binding SelectedCDTTicket.IsOpen}" Placeholder="Ingrese Acuerdos concretados" FontSize="Medium" VerticalOptions="FillAndExpand" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <Label LineBreakMode="WordWrap" Text="{Binding SelectedCDTTicket.Agreements}" FontSize="Medium" VerticalOptions="FillAndExpand" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding SelectedCDTTicket.IsOpen}" Value="True">
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <StackLayout IsVisible="{Binding SelectedCDTTicket.IsOpen}" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Horizontal" Spacing="10">
+                                <ctrl:ImageButton Command="{Binding SaveCommand}" Source="{local:EmbeddedImage saveicon.png}" IsBusy="{Binding IsBusy}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                                <ctrl:ImageButton Command="{Binding SignCDTTicketCommand}" Source="{local:EmbeddedImage signicon.png}" IsBusy="{Binding IsBusy}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <!--Photos Section-->
+                    <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                        </Frame.HasShadow>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Fotos adjuntas" Style="{StaticResource title}" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                            <ActivityIndicator HorizontalOptions="Center" IsRunning="{Binding IsLoadingPhotos}" IsVisible="{Binding IsLoadingPhotos}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                            <Label Text="Sin fotos adjuntas" IsVisible="False" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+                                <Label.Triggers>
+                                    <MultiTrigger TargetType="Label">
+                                        <MultiTrigger.Conditions>
+                                            <BindingCondition Binding="{Binding PhotosTaken.Count}"
+                                                Value="0" />
+                                            <BindingCondition Binding="{Binding IsLoadingPhotos}"
+                                                Value="False" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </MultiTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <ListView ItemsSource="{Binding PhotosTaken, Mode=TwoWay}" SelectedItem="{Binding SelectedPhoto,Mode=TwoWay}" HeightRequest="{Binding PhotoListHeight}" ItemSelected="OpenPhoto"  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding Filename}" VerticalOptions="Center" HeightRequest="20" HorizontalOptions="StartAndExpand" />
+                                            </StackLayout>
+                                            <!--<local:ExtendedViewCell.ContextActions>
+                                                <MenuItem Text="Eliminar adjunto" IsDestructive="True" Command="{Binding Source={x:Reference Page}, Path=BindingContext.DeletePhotoCommand}" CommandParameter="{Binding .}"/>
+                                            </local:ExtendedViewCell.ContextActions>-->
+                                        </local:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <StackLayout IsVisible="{Binding SelectedCDTTicket.IsOpen}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Horizontal">
+                                <ctrl:ImageButton Command="{Binding TakePhotoCommand}" Source="{local:EmbeddedImage cameraicon.png}" IsBusy="{Binding IsBusy}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" Margin="10,0,10,0"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </PullToRefresh:PullToRefreshLayout>
+    </ContentPage>
+    <pages:CDTTicketTechniciansRegistryListPage Title="Técnicos" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}" />
+</TabbedPage>

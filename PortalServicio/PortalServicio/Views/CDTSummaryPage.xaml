@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:pages="clr-namespace:PortalServicio.Views"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:PullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             x:Class="PortalServicio.CDTSummaryPage"
+             Title="{Binding CDT.Number}"
+             x:Name="MasterPage">
+    <ContentPage Title="General">
+        <AbsoluteLayout>
+            <PullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+                                           RefreshCommand="{Binding ReloadCDTCommand}"
+                                           IsRefreshing="{Binding IsBusy}"
+                                           RefreshColor="#3D55AF"
+                                           AbsoluteLayout.LayoutBounds="0,0,1.01,1.01"
+                                           AbsoluteLayout.LayoutFlags="All">
+                <ScrollView>
+                    <StackLayout Style="{StaticResource background}">
+                        <!--Client Information-->
+                        <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,10,10,0"
+               CornerRadius="10">
+                            <Frame.HasShadow>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                            </Frame.HasShadow>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Cliente" Style="{StaticResource title}" HorizontalOptions="Center" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" />
+                                    <Label Text="Nombre" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="3"  HorizontalOptions="Center" />
+                                    <Label Text="{Binding CDT.Client.Alias}" FontSize="Medium"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
+                                    <Label Text="Dirección" FontSize="Medium" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding CDT.Client.Address}" FontSize="Medium" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3"/>
+                                    <Label Text="Teléfono" FontSize="Medium" Grid.Column="0" Grid.Row="5" FontAttributes="Bold"/>
+                                    <Label Text="{Binding CDT.Client.Phone}" FontSize="Medium" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"/>
+                                    <Label Text="Este es un cliente final" TextColor="#3D55AF" IsVisible="{Binding CDT.IsFinalClient}" FontAttributes="Bold" HorizontalOptions="Center" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="6" />
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                        <!--CDT General Information-->
+                        <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                            <Frame.HasShadow>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                            </Frame.HasShadow>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding CDT.Number}" Style="{StaticResource title}" HorizontalOptions="Center" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" />
+                                    <Label Text="Descripción" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" />
+                                    <Label Text="{Binding CDT.Description}" FontSize="Medium"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
+                                    <Label Text="Estado" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="3" />
+                                    <Label Text="{Binding CDT.ProjectState}" FontSize="Medium"  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"/>
+                                    <Label Text="Tipo de Sistema" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" />
+                                    <Label Text="{Binding CDT.System.Name}" FontSize="Medium"  Grid.Column="2" Grid.Row="4"/>
+                                    <Label Text="Fecha Límite del Cliente" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
+                                    <Label Text="{Binding CDT.ProjectClientDeadline, StringFormat='{0:dd/MM/yyyy}' }" FontSize="Medium"  Grid.Column="2" Grid.Row="5"/>
+                                    <Label Text="Fecha Inicio del Proyecto" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2"/>
+                                    <Label Text="{Binding CDT.ProjectStartDate,  StringFormat='{0:dd/MM/yyyy}'}" FontSize="Medium"  Grid.Column="2" Grid.Row="6"/>
+                                    <!--Main Contact Information-->
+                                    <Label Text="Contacto Principal" IsVisible="{Binding IsMainContactSet}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="7" />
+                                    <Label Text="Nombre" FontSize="Medium" IsVisible="{Binding IsMainContactSet}"  Grid.Column="0" Grid.Row="8"/>
+                                    <Label Text="{Binding CDT.MainContact}" IsVisible="{Binding IsMainContactSet}" FontSize="Medium"  Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2"/>
+                                    <Label Text="Email" FontSize="Medium" IsVisible="{Binding IsMainContactSet}" Grid.Column="0" Grid.Row="9"/>
+                                    <Label Text="{Binding CDT.MainContactEmail}" IsVisible="{Binding IsMainContactSet}" FontSize="Medium"  Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2"/>
+                                    <Label Text="Teléfono" FontSize="Medium" IsVisible="{Binding IsMainContactSet}" Grid.Column="0" Grid.Row="10"/>
+                                    <Label Text="{Binding CDT.MainContactPhone}" IsVisible="{Binding IsMainContactSet}" FontSize="Medium"  Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2"/>
+                                    <!--Secondary Contact Information-->
+                                    <Label Text="Contacto Secundario" IsVisible="{Binding IsSecondaryContactSet}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="11" />
+                                    <Label Text="Nombre" FontSize="Medium" IsVisible="{Binding IsSecondaryContactSet}" Grid.Column="0" Grid.Row="12"/>
+                                    <Label Text="{Binding CDT.SecondaryContact}" IsVisible="{Binding IsSecondaryContactSet}" FontSize="Medium"  Grid.Column="1" Grid.Row="12" Grid.ColumnSpan="2"/>
+                                    <Label Text="Email" FontSize="Medium" IsVisible="{Binding IsSecondaryContactSet}" Grid.Column="0" Grid.Row="13"/>
+                                    <Label Text="{Binding CDT.SecondaryContactEmail}" IsVisible="{Binding IsSecondaryContactSet}" FontSize="Medium"  Grid.Column="1" Grid.Row="13" Grid.ColumnSpan="2"/>
+                                    <Label Text="Teléfono" IsVisible="{Binding IsSecondaryContactSet}" FontSize="Medium" Grid.Column="0" Grid.Row="14"/>
+                                    <Label Text="{Binding CDT.SecondaryContactPhone}" IsVisible="{Binding IsSecondaryContactSet}" FontSize="Medium"  Grid.Column="1" Grid.Row="14" Grid.ColumnSpan="2"/>
+                                    <!--Monitoring Information-->
+                                    <Label Text="Información de Monitoreo" IsVisible="{Binding IsMonitorAccountSet}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="15" />
+                                    <Label Text="Nombre de cuenta" FontSize="Medium" IsVisible="{Binding IsMonitorAccountSet}" Grid.Column="0" Grid.Row="16"/>
+                                    <Label Text="{Binding CDT.MonitoringAccountName}" IsVisible="{Binding IsMonitorAccountSet}" FontSize="Medium"  Grid.Column="1" Grid.Row="16" Grid.ColumnSpan="2"/>
+                                    <Label Text="Número de cuenta" FontSize="Medium" IsVisible="{Binding IsMonitorAccountSet}" Grid.Column="0" Grid.Row="17"/>
+                                    <Label Text="{Binding CDT.MonitoringAccountNumber}" IsVisible="{Binding IsMonitorAccountSet}" FontSize="Medium"  Grid.Column="1" Grid.Row="17" Grid.ColumnSpan="2"/>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                        <!--Approvers Information-->
+                        <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                            <Frame.HasShadow>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                            </Frame.HasShadow>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Estado de aprobaciones" Style="{StaticResource title}" HorizontalOptions="Center" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" />
+                                    <Label Text="Aprobación Ger. Administrativa" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" />
+                                    <Image Source="{local:EmbeddedImage correcticon.png}" IsVisible="{Binding CDT.IsApprovedAdministration}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" />
+                                    <Label Text="{Binding CDT.ApproverAdministration.Name, StringFormat='Aprobado por {0}'}" IsVisible="{Binding CDT.IsApprovedAdministration}" FontSize="Medium"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                                    <ctrl:ImageButton Source="{local:EmbeddedImage signicon.png}" Command="{Binding ApproveByAdministrationCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+                                        <ctrl:ImageButton.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedAdministration}" Value="False">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedAdministration}" Value="True">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </ctrl:ImageButton.Triggers>
+                                    </ctrl:ImageButton>
+                                    <Label Text="Aprobación Ger. Comercial" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" />
+                                    <Image Source="{local:EmbeddedImage correcticon.png}" IsVisible="{Binding CDT.IsApprovedComercial}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="4" VerticalOptions="Center" />
+                                    <Label Text="{Binding CDT.ApproverComercial.Name, StringFormat='Aprobado por {0}'}" IsVisible="{Binding CDT.IsApprovedComercial}" FontSize="Medium"  Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"/>
+                                    <ctrl:ImageButton Source="{local:EmbeddedImage signicon.png}" Command="{Binding ApproveByComercialCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3">
+                                        <ctrl:ImageButton.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedComercial}" Value="False">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedComercial}" Value="True">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </ctrl:ImageButton.Triggers>
+                                    </ctrl:ImageButton>
+                                    <Label Text="Aprobación Instalaciones" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5" />
+                                    <Image Source="{local:EmbeddedImage correcticon.png}" IsVisible="{Binding CDT.IsApprovedInstallation}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="6" VerticalOptions="Center" />
+                                    <Label Text="{Binding CDT.ApproverInstallation.Name, StringFormat='Aprobado por {0}'}" IsVisible="{Binding CDT.IsApprovedInstallation}" FontSize="Medium"  Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2"/>
+                                    <ctrl:ImageButton Source="{local:EmbeddedImage signicon.png}" Command="{Binding ApproveByInstallationsCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3">
+                                        <ctrl:ImageButton.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedInstallation}" Value="False">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedInstallation}" Value="True">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </ctrl:ImageButton.Triggers>
+                                    </ctrl:ImageButton>
+                                    <Label Text="Aprobación Ingeniería" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="7" />
+                                    <Image Source="{local:EmbeddedImage correcticon.png}" IsVisible="{Binding CDT.IsApprovedPlanning}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="8" VerticalOptions="Center" />
+                                    <Label Text="{Binding CDT.ApproverPlanning.Name, StringFormat='Aprobado por {0}'}"  IsVisible="{Binding CDT.IsApprovedPlanning}" FontSize="Medium"  Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2"/>
+                                    <ctrl:ImageButton Source="{local:EmbeddedImage signicon.png}" Command="{Binding ApproveByPlanningCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3">
+                                        <ctrl:ImageButton.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedPlanning}" Value="False">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedPlanning}" Value="True">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </ctrl:ImageButton.Triggers>
+                                    </ctrl:ImageButton>
+                                    <Label Text="Aprobación Financiero" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="9" />
+                                    <Image Source="{local:EmbeddedImage correcticon.png}" IsVisible="{Binding CDT.IsApprovedFinancial}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="10" VerticalOptions="Center" />
+                                    <Label Text="{Binding CDT.ApproverFinancial.Name, StringFormat='Aprobado por {0}'}"  IsVisible="{Binding CDT.IsApprovedFinancial}" FontSize="Medium"  Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2"/>
+                                    <ctrl:ImageButton Source="{local:EmbeddedImage signicon.png}" Command="{Binding ApproveByFinancialCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="3">
+                                        <ctrl:ImageButton.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedFinancial}" Value="False">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedFinancial}" Value="True">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </ctrl:ImageButton.Triggers>
+                                    </ctrl:ImageButton>
+                                    <Label Text="Aprobación Serv. al Cliente" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="11" />
+                                    <Image Source="{local:EmbeddedImage correcticon.png}" IsVisible="{Binding CDT.IsApprovedCustomerService}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="12" VerticalOptions="Center" />
+                                    <Label Text="{Binding CDT.ApproverCustomerService.Name, StringFormat='Aprobado por {0}'}" IsVisible="{Binding CDT.IsApprovedCustomerService}" FontSize="Medium"  Grid.Column="1" Grid.Row="12" Grid.ColumnSpan="2"/>
+                                    <ctrl:ImageButton Source="{local:EmbeddedImage signicon.png}" Command="{Binding ApproveByCustomerServiceCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="3">
+                                        <ctrl:ImageButton.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedCustomerService}" Value="False">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedCustomerService}" Value="True">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </ctrl:ImageButton.Triggers>
+                                    </ctrl:ImageButton>
+                                    <Label Text="Aprobación Operaciones" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="13" />
+                                    <Image Source="{local:EmbeddedImage correcticon.png}" IsVisible="{Binding CDT.IsApprovedOperations}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="14" VerticalOptions="Center" />
+                                    <Label Text="{Binding CDT.ApproverOperations.Name, StringFormat='Aprobado por {0}'}" IsVisible="{Binding CDT.IsApprovedOperations}" FontSize="Medium"  Grid.Column="1" Grid.Row="14" Grid.ColumnSpan="2"/>
+                                    <ctrl:ImageButton Source="{local:EmbeddedImage signicon.png}" Command="{Binding ApproveByOperationsCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="3">
+                                        <ctrl:ImageButton.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedOperations}" Value="False">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding CDT.IsApprovedOperations}" Value="True">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </ctrl:ImageButton.Triggers>
+                                    </ctrl:ImageButton>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </PullToRefresh:PullToRefreshLayout>
+        </AbsoluteLayout>
+    </ContentPage>
+    <pages:CDTTicketListPage Title="Boletas" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}" />
+    <pages:CDTProjectEquipmentListPage Title="Equipos" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}"/>
+    <pages:CDTProjectMaterials Title="Materiales" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}"/>
+    <pages:CDTEquipmentOrderRequestsPage Title="Equipos solicitados" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}" />
+    <pages:CDTMaterialOrdersPage Title="Materiales solicitados" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}" />
+    <pages:CDTEquipmentExtraRequestsPage Title="Equipos extras" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}" />
+</TabbedPage>

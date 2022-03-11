@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:control="clr-namespace:PortalServicio.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PortalServicio.Views.CDTProjectMaterials">
+    <StackLayout Style="{StaticResource background}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!--ItemSelected="TapProjectEquipment"-->
+            <Label Text="Materiales del proyecto" Style="{StaticResource title}" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+            <Frame HasShadow="True" IsVisible="False" IsEnabled="False" CornerRadius="10" Padding="5" Margin="6,4,9,4"  Grid.Column="0" Grid.Row="1">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <Frame.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding CDT.ProjectMaterials.Count}" Value="0">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </Frame.Triggers>
+                <Label HorizontalTextAlignment="Center" Text="Sin materiales aún" FontSize="Medium"/>
+            </Frame>
+            <ListView ItemsSource="{Binding CDT.ProjectMaterials}"
+                      SelectedItem="{Binding SelectedProjectMaterial, Mode=TwoWay}"
+                      ItemSelected="TapProjecMaterial"                
+                      VerticalOptions="StartAndExpand"
+                      HasUnevenRows="True"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="None"
+                      Grid.Column="0" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <Frame HasShadow="True" CornerRadius="10" Padding="5" Margin="6,4,9,4" Grid.Row="0" Grid.Column="0">
+                                    <Frame.HasShadow>
+                                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                    </Frame.HasShadow>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                                            <!--<Image Source="{local:EmbeddedImage newlabel.png}" IsVisible="{Binding CreatedToday}" Aspect="AspectFit" WidthRequest="35" HeightRequest="35" VerticalOptions="Center"/>-->
+                                        </StackLayout>
+                                        <Label Text="{Binding Product.Id}" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding Product.Name}" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="1"/>
+                                        <Label Text="{Binding Remaining, StringFormat='Quedan {0} unidades restantes'}" IsVisible="{Binding IsStillAvailable}" Grid.Column="0" Grid.Row="2" HorizontalOptions="Center"/>
+                                        <Label Text="Ya no quedan unidades para retirar" TextColor="Red" Grid.Column="0" IsVisible="{Binding IsOutOfStock}" Grid.Row="2" HorizontalOptions="Center"/>
+                                        <control:StyledStepper IsMAXEnable="True" Value="{Binding Requested, Mode=TwoWay}" IsVisible="{Binding IsStillAvailable}" StepperColor="#3399ff"  Minimum="0" Maximum="{Binding Remaining}" Grid.Column="0" Grid.Row="3" HorizontalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </local:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="3" Grid.Column="0" Spacing="10">
+                <control:ImageButton Command="{Binding SaveChangesCommand}" IsBusy="{Binding IsBusy}" Source="{local:EmbeddedImage saveicon.png}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                <control:ImageButton Command="{Binding OrderMaterialsCommand}" IsBusy="{Binding IsBusy}" Source="{local:EmbeddedImage boxaddicon.png}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+        
+    </StackLayout>
+</ContentPage>

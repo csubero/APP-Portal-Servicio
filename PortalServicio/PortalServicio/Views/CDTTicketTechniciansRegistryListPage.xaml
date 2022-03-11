@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:control="clr-namespace:PortalServicio.Controls"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.Views.CDTTicketTechniciansRegistryListPage"
+             x:Name="Page">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:ConverterDatetimeToTimespan x:Key="ConverterDatetimeToTimespan"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Style="{StaticResource background}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!--ItemSelected="TapProjectEquipment"-->
+            <Label Text="Técnicos presentes" Style="{StaticResource title}" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+            <Frame HasShadow="True" IsVisible="False" IsEnabled="False" CornerRadius="10" Padding="5" Margin="6,4,9,4"  Grid.Column="0" Grid.Row="1">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <Frame.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding SelectedCDTTicket.TechniciansRegistered.Count}" Value="0">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </Frame.Triggers>
+                <Label HorizontalTextAlignment="Center" Text="Sin técnicos designados" FontSize="Medium"/>
+            </Frame>
+            <ListView ItemsSource="{Binding SelectedCDTTicket.TechniciansRegistered}"
+                      SelectedItem="{Binding SelectedTechnicianRegistry, Mode=TwoWay}" 
+                      ItemSelected="SelectRegistry"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="None"
+                      HeightRequest="325"
+                      Grid.Column="0" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <Frame HasShadow="True" CornerRadius="10" Padding="5" Margin="6,4,9,4" Grid.Row="0" Grid.Column="0">
+                                    <Frame.HasShadow>
+                                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                    </Frame.HasShadow>
+                                    <Grid Margin="5" VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Technician.Name}" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                        <StackLayout  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" IsVisible="{Binding IsExtended}">
+                                            <Grid Margin="5" VerticalOptions="Center">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Text="Inicio" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                                <Label Text="Fin" VerticalOptions="Center" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                                <Label Text="{Binding Started, StringFormat='{0:dd/MM/yyyy, h\\:mm tt}'}" IsVisible="False" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                                                    <Label.Triggers>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding Path=BindingContext.SelectedCDTTicket.IsOpen, Source={x:Reference Name=Page}}" Value="False">
+                                                            <Setter Property="IsVisible" Value="True"/>
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                                <Label Text="{Binding Finished, StringFormat='{0:dd/MM/yyyy, h\\:mm tt}'}" IsVisible="False" VerticalOptions="Center" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2">
+                                                    <Label.Triggers>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding Path=BindingContext.SelectedCDTTicket.IsOpen, Source={x:Reference Name=Page}}" Value="False">
+                                                            <Setter Property="IsVisible" Value="True"/>
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                                <TimePicker Time="{Binding Started, Converter={StaticResource ConverterDatetimeToTimespan}, Mode=TwoWay}" IsVisible="{Binding Path=BindingContext.SelectedCDTTicket.IsOpen, Source={x:Reference Name=Page}}" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                                <TimePicker Time="{Binding Finished, Converter={StaticResource ConverterDatetimeToTimespan}, Mode=TwoWay}" IsVisible="{Binding Path=BindingContext.SelectedCDTTicket.IsOpen, Source={x:Reference Name=Page}}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                                <Label Text="Sig. Día" TextColor="Blue" IsVisible="{Binding IsExtendingToNextDay}"  HorizontalOptions="Center"  Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" />
+                                                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" HorizontalOptions="Center" IsVisible="{Binding Path=BindingContext.SelectedCDTTicket.IsOpen, Source={x:Reference Name=Page}}">
+                                                    <ctrl:ImageButton Command="{Binding Path=BindingContext.SaveChangesTechnicianRegistryCommand, Source={x:Reference Name=Page}}" CommandParameter="{Binding .}" Source="{local:EmbeddedImage saveicon.png}" IsBusy="{Binding IsBusy}" Aspect="AspectFit" WidthRequest="35" HeightRequest="35" HorizontalOptions="Center" Margin="5,0,5,0"/>
+                                                    <ctrl:ImageButton Command="{Binding Path=BindingContext.DeleteTechnicianRegistryCommand, Source={x:Reference Name=Page}}" CommandParameter="{Binding .}" Source="{local:EmbeddedImage deleteicon.png}" IsBusy="{Binding IsBusy}" Aspect="AspectFit" WidthRequest="35" HeightRequest="35" HorizontalOptions="Center" Margin="5,0,5,0"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </local:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" IsVisible="{Binding SelectedCDTTicket.IsOpen}" Grid.Column="0" Grid.Row="3">
+                <control:ImageButton Command="{Binding AddTechnicianRegistryCommand}" IsBusy="{Binding IsBusy}" Source="{local:EmbeddedImage addicon.png}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

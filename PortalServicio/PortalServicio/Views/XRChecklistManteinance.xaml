@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             x:Class="PortalServicio.XRChecklistManteinance"
+             x:Name="Page">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:DicConvertLeadState x:Key="DicConvertLeadState"/>
+            <convert:DicConvertScreenType x:Key="DicConvertScreenType"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Limpieza y Verificación de Componentes" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Cubiertas y etiquetas en buen estado" HeightRequest="40" FontSize="Medium"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" FontAttributes="Bold"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckLabels, Mode=TwoWay}" Grid.Column="3" Grid.Row="1"/>
+                        <Label Text="Limpieza general del sistema interna y externa" HeightRequest="45" FontSize="Medium" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"  FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckInOutSystem, Mode=TwoWay}" Grid.Column="3" Grid.Row="2" />
+                        <Label Text="Limpieza de barreras infrarrojas" FontSize="Medium" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckIRFences, Mode=TwoWay}" Grid.Column="3" Grid.Row="3" />
+                        <Label Text="Verificación de elementos de control" FontSize="Medium" HeightRequest="40" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckControlElements, Mode=TwoWay}" Grid.Column="3" Grid.Row="4" />
+                        <Label Text="Verificación relevos control de motor" FontSize="Medium" HeightRequest="40" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckEngineControl, Mode=TwoWay}" Grid.Column="3" Grid.Row="5" />
+                        <Label Text="Limpieza y verificación banda transportadora" FontSize="Medium" HeightRequest="45" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckConveyorBelt, Mode=TwoWay}" Grid.Column="3" Grid.Row="6" />
+                        <Label Text="Verificación arrastre del motor" FontSize="Medium" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckEngineTraction, Mode=TwoWay}" Grid.Column="3" Grid.Row="7" />
+                        <Label Text="Verificación de rodillos de carga y descarga *" FontSize="Medium" HeightRequest="45" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="8" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckRollers, Mode=TwoWay}" Grid.Column="3" Grid.Row="8" />
+                        <Label Text="Verificación de paradas de emergencia" HeightRequest="45" FontSize="Medium" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckEmergencyStop, Mode=TwoWay}" Grid.Column="3" Grid.Row="9" />
+                        <Label Text="Verificación sistema interno de bloqueo (Interlock)" FontSize="Medium" HeightRequest="45" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckInterlock, Mode=TwoWay}" Grid.Column="3" Grid.Row="10" />
+                        <Label Text="Verificación monitor de corriente *" FontSize="Medium" HeightRequest="45" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckVoltMonitor, Mode=TwoWay}" Grid.Column="3" Grid.Row="11" />
+                        <Label Text="Verificación circuito de seguridad *" HeightRequest="45" FontSize="Medium" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckSecurityCircuit, Mode=TwoWay}" Grid.Column="3" Grid.Row="12" />
+                        <Label Text="Verificación sistema de ventilación *" FontSize="Medium" HeightRequest="45" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckConditioningSystem, Mode=TwoWay}" Grid.Column="3" Grid.Row="13" />
+                        <Label Text="Verificación y prueba de Sistema Operativo" FontSize="Medium" HeightRequest="45" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckOS, Mode=TwoWay}" Grid.Column="3" Grid.Row="14" />
+                        <Label Text="Verificación cono de emisión de rayos X" HeightRequest="45" FontSize="Medium" Grid.Column="0" Grid.Row="15" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckXRCone, Mode=TwoWay}" Grid.Column="3" Grid.Row="15" />
+                        <Label Text="Verificación señal de línea y módulos detectores" HeightRequest="45" FontSize="Medium" Grid.Column="0" Grid.Row="16" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckLineAndDetectionModules, Mode=TwoWay}" Grid.Column="3" Grid.Row="16" />
+                        <Label Text="Verificación parámetros generales de configuración" FontSize="Medium" HeightRequest="45" Grid.Column="0" Grid.Row="17" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckConfiguration, Mode=TwoWay}" Grid.Column="3" Grid.Row="17" />
+                        <Label Text="Verificación y funcionamiento de teclado" FontSize="Medium" HeightRequest="45" Grid.Column="0" Grid.Row="18" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckKeyboard, Mode=TwoWay}" Grid.Column="3" Grid.Row="18" />
+                        <Label Text="Verificación estado y configuración de monitor" HeightRequest="45" FontSize="Medium" Grid.Column="0" Grid.Row="19" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckMonitorConfiguration, Mode=TwoWay}" Grid.Column="3" Grid.Row="19" />
+                        <Label Text="Tipo de monitor" HeightRequest="25" FontSize="Medium" Grid.Column="0" Grid.Row="20" Grid.ColumnSpan="2" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker  ItemsSource="{Binding Dic_ScreenTypeList}" Title="Tipo de monitor" SelectedIndex="{Binding Ticket.RXMantCheckScreenType, Converter={StaticResource DicConvertScreenType}}" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.ColumnSpan="2"  Grid.Row="20"/>
+                        <Label Text="Inspección en doble sentido" FontSize="Medium" Grid.Column="0" Grid.Row="21" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckTwoWayMode, Mode=TwoWay}" Grid.Column="3" Grid.Row="21"/>
+                        <Label Text="Verificación cubiertas indicadores de radiación" HeightRequest="45" FontSize="Medium" Grid.Column="0" Grid.Row="22" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Switch IsToggled="{Binding Ticket.RXMantCheckRadiationIndicators, Mode=TwoWay}" Grid.Column="3" Grid.Row="22"/>
+                        <Label Text="Estado de cortinas de plomo" HeightRequest="45" FontSize="Medium" Grid.Column="0" Grid.Row="23" Grid.ColumnSpan="2" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_LeadStateList}" Title="Estado" SelectedIndex="{Binding Ticket.RXMantLeadState, Converter={StaticResource DicConvertLeadState}}" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="23"/>
+
+                        <!--<Label Text="Valor númerico" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="3" FontAttributes="Bold"/>
+                        <Entry Keyboard="Numeric" Placeholder="Ej: 123" Grid.Column="1" Grid.Row="3"/>
+                        <Image WidthRequest="50" HeightRequest="50" Source="{local:EmbeddedImage mapicon.png}" Aspect="AspectFit" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"/>
+                        <Label Text="Fecha" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="5" FontAttributes="Bold"/>
+                        <DatePicker Format="dd/MM/yyyy" Date="{Binding Ticket.Started, Mode=TwoWay}" Grid.Column="1" Grid.Row="5"/>
+                        <Label Text="Número de revisión" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="6" FontAttributes="Bold"/>
+                        <Picker Title="Número de revisión" Grid.Column="1" Grid.Row="6" VerticalOptions="Center">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>1era Revisión</x:String>
+                                    <x:String>2da Revisión</x:String>
+                                    <x:String>3era Revisión</x:String>
+                                    <x:String>4ta Revisión</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Label Text="Estado del equipo" VerticalOptions="Center" FontSize="Medium" Grid.Column="0" Grid.Row="7" FontAttributes="Bold"/>
+                        <Picker Title="Estado del equipo" ItemsSource="{Binding Dic_HWStateList}" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="1" Grid.Row="7">
+                        </Picker>-->
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <ActivityIndicator x:Name="loadingIndicator" Style="SecondaryColor" AbsoluteLayout.LayoutBounds="0.5,0.5,0.33,0.33" AbsoluteLayout.LayoutFlags="All" IsVisible="False" IsRunning="True"/>
+    </AbsoluteLayout>
+</ContentPage>

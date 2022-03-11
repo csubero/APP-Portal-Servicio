@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PortalServicio.OperationsPage"
+             xmlns:local="clr-namespace:PortalServicio"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="True"
+             Title="Operaciones"
+             BackgroundColor="White"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Options" Text="Opciones" Activated="OnOptionsTapped" Order="Primary" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Frame CornerRadius="10" HasShadow="True" OutlineColor="White" BackgroundColor="White" HorizontalOptions="Fill" Margin="10,10,10,10" Padding="10,10,10,10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                <Label x:Name="LblWelcome" Text="Bienvenido: " FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                <Image x:Name="BtnLogout" Source="{local:EmbeddedImage logouticon.png}" HorizontalOptions="End" Aspect="AspectFit" HeightRequest="50"/>
+            </StackLayout>
+        </Frame>
+        <Grid x:Name="MenuContainer" VerticalOptions="Start" Padding="10"/>
+        <Label Text="Versión 2.5.2018.11.29" VerticalOptions="EndAndExpand" HorizontalOptions="End"/>
+    </StackLayout>
+</ContentPage>

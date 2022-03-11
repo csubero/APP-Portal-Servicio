@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             x:Class="PortalServicio.XRChecklistRadiation"
+             x:Name="Page" Icon="RadiationTab.png">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:DicConvertRadState x:Key="DicConvertRadState"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,10,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Equipo de Medición" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Marca" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXRadHWTrademark, Mode=TwoWay}" VerticalOptions="Center" Placeholder="Marca de equipo" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label Text="Modelo" FontSize="Medium" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXRadHWModel, Mode=TwoWay}" VerticalOptions="Center" Placeholder="Modelo de equipo" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label Text="Fecha Calibración Medidor" FontSize="Medium" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <DatePicker Format="dd/MM/yyyy" Date="{Binding Ticket.RXRadHWCalibrationDate, Mode=TwoWay}" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2"/>
+                        <Label Text="Fecha Venc. Calibración Medidor" FontSize="Medium" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <DatePicker Format="dd/MM/yyyy" Date="{Binding Ticket.RXRadHWCalibrationDueDate, Mode=TwoWay}" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Frame>
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Mediciones de Radiación" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Salida del túnel" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXRadTunnelRadOut, Mode=TwoWay}" VerticalOptions="Center" Placeholder="Valor" Grid.Column="2" Grid.Row="1"/>
+                        <Label Text="µSv/h" FontSize="Medium" Grid.Column="3" Grid.Row="1" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="Ingreso del túnel" FontSize="Medium" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXRadTunnelRadIn, Mode=TwoWay}" VerticalOptions="Center" Placeholder="Valor" Grid.Column="2" Grid.Row="2"/>
+                        <Label Text="µSv/h" FontSize="Medium" Grid.Column="3" Grid.Row="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="Costado operador a 5 cm" FontSize="Medium" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXRadOperatorRad, Mode=TwoWay}" VerticalOptions="Center" Placeholder="Valor" Grid.Column="2" Grid.Row="3"/>
+                        <Label Text="µSv/h" FontSize="Medium" Grid.Column="3" Grid.Row="3" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Cumplimiento de niveles de Radiación" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Estado" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_RadStateList}" Title="Estado" SelectedIndex="{Binding Ticket.RXRadRadiationState, Converter={StaticResource DicConvertRadState}}" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <ActivityIndicator x:Name="loadingIndicator" Style="SecondaryColor" AbsoluteLayout.LayoutBounds="0.5,0.5,0.33,0.33" AbsoluteLayout.LayoutFlags="All" IsVisible="False" IsRunning="True"/>
+    </AbsoluteLayout>
+</ContentPage>

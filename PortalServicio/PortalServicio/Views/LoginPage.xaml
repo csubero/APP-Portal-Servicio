@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             x:Class="PortalServicio.LoginPage"
+             NavigationPage.HasNavigationBar="false">
+    <AbsoluteLayout>
+        <Image Source="{local:EmbeddedImage fondo6.jpg}"
+               AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All"
+               Aspect="AspectFill"/>
+        <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.6,0.90,0.5" AbsoluteLayout.LayoutFlags="All">
+            <Image Source="{local:EmbeddedImage spclogo.png}"/>
+            <Frame VerticalOptions="EndAndExpand" HorizontalOptions="Center"
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="{local:CustomColor '255:255:255:125'}"       
+               Margin="10" 
+               CornerRadius="10">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <StackLayout Opacity="1" VerticalOptions="Center"  HorizontalOptions="Center"
+                     Padding="10,10,10,10">
+                    <AbsoluteLayout HorizontalOptions="Center">
+                        <Image Source="{local:EmbeddedImage loadingbase.png}" AbsoluteLayout.LayoutBounds="0,0,50,75" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                        <Image x:Name="Pgbar" Source="{local:EmbeddedImage loadingpg.png}" IsEnabled="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0.5,0.25,40,40" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+                    <Label Text="{Binding StatusMessage}" FontSize="Medium"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             x:Class="PortalServicio.LoginPage"
+             NavigationPage.HasNavigationBar="false">
+    <AbsoluteLayout>
+        <Image Source="{local:EmbeddedImage fondo6.jpg}"
+               AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All"
+               Aspect="AspectFill"/>
+        <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.6,0.90,0.5" AbsoluteLayout.LayoutFlags="All">
+            <Image Source="{local:EmbeddedImage spclogo.png}"/>
+            <Frame VerticalOptions="EndAndExpand" HorizontalOptions="Center"
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="{local:CustomColor '255:255:255:125'}"       
+               Margin="10" 
+               CornerRadius="10">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <StackLayout Opacity="1" VerticalOptions="Center"  HorizontalOptions="Center"
+                     Padding="10,10,10,10">
+                    <AbsoluteLayout HorizontalOptions="Center">
+                        <Image Source="{local:EmbeddedImage loadingbase.png}" AbsoluteLayout.LayoutBounds="0,0,50,75" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                        <Image x:Name="Pgbar" Source="{local:EmbeddedImage loadingpg.png}" AbsoluteLayout.LayoutBounds="0.5,0.25,40,40" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+                    <Label x:Name="TxtStatus" Text="Bienvenido" FontSize="Medium"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>-->

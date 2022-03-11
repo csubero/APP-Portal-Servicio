@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.ListCasesPage"
+             xmlns:local="clr-namespace:PortalServicio"
+             Title="Listado de Casos"
+             x:Name="Page">
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <ctrl:SearchList PlaceholderText="Buscar caso o cliente"
+                             PlaceholderColor="LightGray"
+                             SearchText="{Binding SearchText, Mode=TwoWay}"
+                             OnSearchTextChangeCommand="{Binding FilterIncidentsCommand}"
+                             OnSelectCommand="{Binding OpenIncidentCommand}"
+                             SearchCommand="{Binding SearchIncidentsCommand}"
+                             ItemSource="{Binding IncidentsFiltered}"
+                             SelectedItem="{Binding SelectedIncident, Mode=TwoWay}"
+                             IsPullToRefreshEnabled="True"
+                             IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
+                             RefreshCommand="{Binding LoadIncidentsCommand}"
+                             VerticalOptions="FillAndExpand"
+                             >
+                <ctrl:SearchList.ItemTemplate>
+                    <DataTemplate>
+                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <Frame OutlineColor="White" CornerRadius="10" Padding="5" Margin="6,4,9,4">
+                                    <Frame.HasShadow>
+                                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                    </Frame.HasShadow>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+                                            <Image Source="{local:EmbeddedImage newlabel.png}" IsVisible="{Binding CreatedToday}" Aspect="AspectFit" WidthRequest="35" HeightRequest="35" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding TicketNumber}" Style="{StaticResource clickable}" FontSize="Large" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding Client.Alias}" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </local:ExtendedViewCell>
+                    </DataTemplate>
+                </ctrl:SearchList.ItemTemplate>
+            </ctrl:SearchList>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

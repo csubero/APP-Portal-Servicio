@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:crsl="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:local="clr-namespace:PortalServicio"        
+             x:Class="PortalServicio.AddTechnicalServiceCostPopUpPage">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--<AbsoluteLayout>
+        <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">-->
+    <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10"
+               VerticalOptions="Center" HorizontalOptions="Center">
+        <Frame.HasShadow>
+            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+        </Frame.HasShadow>
+        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="270" />
+            </Grid.RowDefinitions>
+            <ctrl:StepProgressBar StepColor="#3399ff" Steps="{Binding TotalSteps}" StepSelected="{Binding ProcessStep, Mode=TwoWay}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"/>
+            <crsl:CarouselViewControl Orientation="Horizontal" InterPageSpacing="10" Position="{Binding ProcessStep, Mode=TwoWay}" ItemsSource="{Binding Source}" Grid.Row="1" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <crsl:CarouselViewControl.ItemsSource>
+                    <x:Array Type="{x:Type View}">
+                        <!-- This is another page -->
+                        <StackLayout Padding="10">
+                            <Label Text="Tiempo Estimado" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            <Label Text="Seleccione la cantidad de horas estimadas para el trabajo a realizar" Margin="0,10,0,0" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                            <ctrl:StyledStepper StepperColor="#3399ff" Minimum="1" Maximum="24" Value="{Binding Hours, Mode=TwoWay}" Margin="0,10,0,0" HorizontalOptions="Center"/>
+                            <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding AddWorkCostsCommand}" Source="{local:EmbeddedImage okicon.png}" Margin="0,10,0,0" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                        </StackLayout>
+                        <!-- This is another page -->
+                        <StackLayout Padding="10">
+                            <Label Text="Selección de personal" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            <Label Text="Seleccione el equipo de colabores que se requieren para realizar el trabajo" Margin="0,10,0,0" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                            <Picker Title="Seleccione el personal" ItemsSource="{Binding AvailablePersonal}" SelectedIndex="{Binding SelectedPersonal}" HorizontalOptions="Center"/>
+                            <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding AddWorkCostsCommand}" Source="{local:EmbeddedImage okicon.png}" Margin="0,10,0,0" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                        </StackLayout>
+                        <!-- This is another page -->
+                        <StackLayout Padding="10">
+                            <Label Text="Confirmar cotización" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            <Label Text="Dadas sus elecciones se determinó el siguiente servicio como cotización: " Margin="0,10,0,0" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding ToAdd.Product.Name}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding ConfirmOperationCommand}" Source="{local:EmbeddedImage okicon.png}" Margin="0,10,0,0" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                        </StackLayout>
+                    </x:Array>
+                </crsl:CarouselViewControl.ItemsSource>
+            </crsl:CarouselViewControl>
+        </Grid>
+    </Frame>
+    <!--<StackLayout x:Name="loadingIndicator" BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" IsRunning="{Binding IsBusy}"/>
+        </StackLayout>
+    </AbsoluteLayout>-->
+</pages:PopupPage>

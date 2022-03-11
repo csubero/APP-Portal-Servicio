@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             x:Class="PortalServicio.XRChecklistSoftware"
+             x:Name="Page">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:DicConvertPossesionState x:Key="DicConvertPossesionState"/>
+            <convert:DicConvertTechnology x:Key="DicConvertTechnology"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <Grid>
+                        <Label Text="Funciones avanzadas de software opcionales" Style="{StaticResource title}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"/>
+                        <Label Text="Dongle Serial Físico" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXSoftPhysicalDongleSerial, Mode=TwoWay}" Placeholder="Número Serie" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                        <Label Text="Dongle Serial Software ID" FontSize="Medium" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXSoftSoftwareDongleSerial, Mode=TwoWay}" Placeholder="Número Serie" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                        <Label Text="SEN" FontSize="Medium" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveSEN, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2"/>
+                        <Label Text="HI-TIP" FontSize="Medium" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveHITIP, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2"/>
+                        <Label Text="X-PLORE" FontSize="Medium" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveXPLORE, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2"/>
+                        <Label Text="HI-SPOT" FontSize="Medium" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveHISPOT, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2"/>
+                        <Label Text="IMS" FontSize="Medium" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveIMS, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2"/>
+                        <Label Text="X-ACT" FontSize="Medium" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveXACT, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2"/>
+                        <Label Text="HDA" FontSize="Medium" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveHDA, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="2"/>
+                        <Label Text="X-PORT" FontSize="Medium" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveXPORT, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="2"/>
+                        <Label Text="X-TRAIN" FontSize="Medium" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_PossesionStateList}" SelectedIndex="{Binding Ticket.RXSoftHaveXTRAIN, Converter={StaticResource DicConvertPossesionState}}" Title="Estado" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="11" Grid.ColumnSpan="2"/>
+                        <Label Text="Tecnología" FontSize="Medium" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Picker ItemsSource="{Binding Dic_TechnologyList}" SelectedIndex="{Binding Ticket.RXSoftTechnology, Converter={StaticResource DicConvertTechnology}}" Title="Tecnología" ItemDisplayBinding="{Binding Key}" VerticalOptions="Center" Grid.Column="2" Grid.Row="12" Grid.ColumnSpan="2"/>
+                        <Label Text="Versión de software" FontSize="Medium" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Ticket.RXSoftSoftwareVersion, Mode=TwoWay}" Placeholder="Versión" Grid.Column="2" Grid.Row="13" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <ActivityIndicator x:Name="loadingIndicator" Style="SecondaryColor" AbsoluteLayout.LayoutBounds="0.5,0.5,0.33,0.33" AbsoluteLayout.LayoutFlags="All" IsVisible="False" IsRunning="True"/>
+    </AbsoluteLayout>
+</ContentPage>

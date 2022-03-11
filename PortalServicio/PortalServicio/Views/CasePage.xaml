@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:PullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             x:Class="PortalServicio.CasePage"
+             Title="{Binding Case.TicketNumber}"
+             x:Name="Page">
+    <AbsoluteLayout>
+        <PullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+                                           RefreshCommand="{Binding ReloadCaseCommand}"
+                                           IsRefreshing="{Binding IsRefreshing}"
+                                           RefreshColor="#3D55AF"
+                                           AbsoluteLayout.LayoutBounds="0,0,1.01,1.01"
+                                           AbsoluteLayout.LayoutFlags="All">
+            <ScrollView>
+                <StackLayout Style="{StaticResource background}">
+                    <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                        </Frame.HasShadow>
+                        <StackLayout>
+                            <Label Text="Cliente" Style="{StaticResource title}" HorizontalOptions="Center" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Nombre" FontSize="Medium" WidthRequest="90" MinimumWidthRequest="75" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding Case.Client.Alias}" FontSize="Medium" HorizontalOptions="Start" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Dirección" FontSize="Medium" WidthRequest="90" MinimumWidthRequest="75" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding Case.Client.Address}" FontSize="Medium"  HorizontalOptions="Start"  VerticalOptions="Center"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Teléfono" FontSize="Medium" WidthRequest="90" MinimumWidthRequest="75" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding Case.Client.Phone}" FontSize="Medium"  HorizontalOptions="Start"  VerticalOptions="Center"/>
+                            </StackLayout>
+                            <ctrl:ImageButton Command="{Binding OpenWazeCommand}" IsBusy="{Binding IsBusy}" IsActivated="{Binding DoesHaveCoords}" Source="{local:EmbeddedImage mapicon.png}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0" 
+               CornerRadius="10">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                        </Frame.HasShadow>
+                        <StackLayout>
+                            <Label Text="{Binding Case.TicketNumber}" Style="{StaticResource title}" HorizontalOptions="Center" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Creado el" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" WidthRequest="90" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Case.CreatedOn, StringFormat='{0:dd/MM/yyyy} a las {0:hh\\:mm tt}'}" FontSize="Medium" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Asesor de servicio" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" WidthRequest="90" />
+                                <Label Text="{Binding Case.Representative}" FontSize="Medium" VerticalOptions="Center" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Incidencia" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" WidthRequest="90" />
+                                <Label Text="{Binding Case.Incidence}" FontSize="Medium" VerticalOptions="Center" />
+                            </StackLayout>
+                            <Label Text="{Binding Case.Title}" Style="{StaticResource title}" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            <Label Text="Descripción" Style="{StaticResource title}" Margin="0,10,0,10" HorizontalOptions="Center" />
+                            <Label Text="{Binding Case.Description}" FontSize="Medium"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10" 
+               CornerRadius="10">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                        </Frame.HasShadow>
+                        <StackLayout>
+                            <Label Text="{Binding Case.ServiceTickets.Count, StringFormat='{0} Boletas de Servicio'}" Style="{StaticResource title}" HorizontalOptions="Center" />
+                            <ctrl:ImageButton IsActivated="True" IsBusy="{Binding IsBusy}" Command="{Binding CreateNewServiceTicketCommand}" Source="{local:EmbeddedImage addicon.png}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                            <ListView ItemsSource="{Binding Case.ServiceTickets}" SelectedItem="{Binding SelectedServiceTicket, Mode=TwoWay}" HeightRequest="{Binding ServiceTicketsHeight}" HasUnevenRows="True" ItemSelected="OpenTicket" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                            <ViewCell.View>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <StackLayout WidthRequest="5" BackgroundColor="Green">
+                                                        <StackLayout.Triggers>
+                                                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsOpen}" Value="True">
+                                                                <Setter Property="BackgroundColor" Value="Green"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsOpen}" Value="False">
+                                                                <Setter Property="BackgroundColor" Value="Red"/>
+                                                            </DataTrigger>
+                                                        </StackLayout.Triggers>
+                                                    </StackLayout>
+                                                    <StackLayout>
+                                                        <Label Text="{Binding TicketNumber, StringFormat='Boleta {0}'}" Style="{StaticResource clickable}"/>
+                                                        <Label Text="{Binding CreationDate, StringFormat='Creado el {0:dd/MM/yyyy, h\\:mm tt}'}"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </ViewCell.View>
+                                            <local:ExtendedViewCell.ContextActions>
+                                                <MenuItem Text="Borrar boleta" IsDestructive="True" Command="{Binding Path=BindingContext.DeleteServiceTicketCommand, Source={x:Reference Name=Page}}" CommandParameter="{Binding .}"/>
+                                            </local:ExtendedViewCell.ContextActions>
+                                        </local:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </PullToRefresh:PullToRefreshLayout>
+    </AbsoluteLayout>
+</ContentPage>

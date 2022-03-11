@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             x:Class="PortalServicio.ListContractsPage"
+             Title="Sus contratos">
+    <AbsoluteLayout>
+        <Image x:Name="LoaderContractList" Source="{local:EmbeddedImage loadingpg.png}" AbsoluteLayout.LayoutBounds="0.5,0.5,0.18,0.18" AbsoluteLayout.LayoutFlags="All"/>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <SearchBar x:Name="contractSearch" BackgroundColor="White"
+                   PlaceholderColor="LightGray"
+                   Placeholder="Buscar contrato"
+                   TextChanged="SearchTextChanged" HeightRequest="50"/>
+            <ListView x:Name="ListViewContracts" ItemSelected="Handle_ContractTapped" HasUnevenRows="True" SeparatorVisibility="None" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <StackLayout VerticalOptions="Center">
+                                    <Frame 
+                                            HasShadow="True" OutlineColor="Transparent"  BackgroundColor="#efefef"       
+                                            Margin="5,2,5,2"
+                                            CornerRadius="5">
+                                        <Frame.HasShadow>
+                                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                        </Frame.HasShadow>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="75"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout BackgroundColor="{Binding Signed, Converter={StaticResource TriStateColorConverter}}"
+                                                     Margin="2,2,2,2"
+                                       Grid.Row="0" Grid.Column="0"/>
+                                            <StackLayout Grid.Row="0" Grid.Column="1">
+                                                <Label Text="Contrato"
+                                                   Style="{StaticResource clickable}"
+                                                   FontSize="Large"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                                <Label Text="{Binding ContractNumber}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Large"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                            </StackLayout>
+                                            <StackLayout Grid.Row="0" Grid.Column="2">
+                                                <Label Text="CDT"
+                                                   Style="{StaticResource clickable}"
+                                                   FontSize="Large"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                                <Label Text="{Binding Cdt.Number}"
+                                                   FontSize="Large"
+                                                   FontAttributes="Bold"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center" />
+                                            </StackLayout>
+                                            <StackLayout  Grid.Row="0" Grid.Column="3">
+                                                <Label Text="Monto"
+                                                   Style="{StaticResource clickable}"
+                                                   FontSize="Large"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                                <Label Text="{Binding AmountTotalFormatted}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Large"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                      />
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </local:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

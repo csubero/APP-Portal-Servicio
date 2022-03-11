@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:PullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             x:Class="PortalServicio.Views.MyLegalizationSummary"
+             Title="{Binding Legalization.LegalizationNumber, StringFormat='Legalización {0}'}">
+    <ContentPage>
+        <StackLayout>
+            <PullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+                                           RefreshCommand="{Binding ReloadCaseCommand}"
+                                           IsRefreshing="{Binding IsRefreshing}"
+                                           RefreshColor="#3D55AF"
+                                           AbsoluteLayout.LayoutBounds="0,0,1.01,1.01"
+                                           AbsoluteLayout.LayoutFlags="All">
+                <ScrollView>
+                    <StackLayout Style="{StaticResource background}">
+                        <!--Sección Datos-->
+                        <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                            <Frame.HasShadow>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                            </Frame.HasShadow>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="Datos" Style="{StaticResource title}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" />
+                                <Label Text="Tipo" FontSize="Medium" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label FontSize="Medium" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Legalization.LegalizationType}" Value="100000000">
+                                            <Setter Property="Text" Value="Caja Chica"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Legalization.LegalizationType}" Value="100000001">
+                                            <Setter Property="Text" Value="Gastos de Viaje"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Legalization.LegalizationType}" Value="100000002">
+                                            <Setter Property="Text" Value="Transferencia"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Legalization.LegalizationType}" Value="100000003">
+                                            <Setter Property="Text" Value="Pago Tarjeta Empresarial"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Label Text="Es un improvisto de proyecto" IsVisible="{Binding Legalization.ProjectIssue}" HorizontalTextAlignment="Center" TextColor="RosyBrown"  FontSize="Medium" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding Legalization.Type}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontSize="Medium" />
+                                <Label Text="Empresa" Grid.Row="3" Grid.Column="0" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding Legalization.Company.Name }" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" FontSize="Medium" />
+                                <Label Text="Detalle" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding Legalization.Detail }" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" />
+                            </Grid>
+                        </Frame>
+                        <!--Sección Montos-->
+                        <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                            <Frame.HasShadow>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                            </Frame.HasShadow>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="Montos" Style="{StaticResource title}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" />
+                                <Label Text="Monto Solicitado" FontSize="Medium" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Legalization.MoneyCurrency.Symbol}" />
+                                            <Span Text="{Binding Legalization.MoneyRequested, StringFormat='{0:F2}'}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Text="Monto Legalizado" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Legalization.MoneyCurrency.Symbol}" />
+                                            <Span Text="{Binding Legalization.MoneyPaid, StringFormat='{0:F2}'}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Text="Saldo Pendiente" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Legalization.MoneyCurrency.Symbol}" />
+                                            <Span Text="{Binding Legalization.MoneyPending, StringFormat='{0:F2}'}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                        </Frame>
+                        <!--Seccion Firma-->
+                        <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                            <Frame.HasShadow>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                            </Frame.HasShadow>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="Firmas" Style="{StaticResource title}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" />
+                                <Label Text="Firma Legalizador" FontSize="Medium" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Image Source="{local:EmbeddedImage correcticon.png}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" >
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding Legalization.SignState}" Value="0">
+                                            <Setter Property="IsVisible" Value="False" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                                <ctrl:ImageButton Source="{local:EmbeddedImage signicon.png}" IsVisible="False" Command="{Binding SignByOwnerCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+                                    <ctrl:ImageButton.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding Legalization.SignState}" Value="0">
+                                            <Setter Property="IsVisible" Value="True" />
+                                        </DataTrigger>
+                                    </ctrl:ImageButton.Triggers>
+                                </ctrl:ImageButton>
+                                <Label Text="Firma Gerente de área" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" FontAttributes="Bold" />
+                                <Image Source="{local:EmbeddedImage correcticon.png}" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="4" VerticalOptions="Center" >
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding Legalization.SignState}" Value="0">
+                                            <Setter Property="IsVisible" Value="False" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Image" Binding="{Binding Legalization.SignState}" Value="1">
+                                            <Setter Property="IsVisible" Value="False" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                                <Label Text="Pendiente o Sin Aprobar" TextColor="Red" IsVisible="False" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" HorizontalTextAlignment="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Legalization.SignState}" Value="0">
+                                            <Setter Property="IsVisible" Value="True" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Legalization.SignState}" Value="1">
+                                            <Setter Property="IsVisible" Value="True" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Label Text="Firma Tesorería" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" FontAttributes="Bold" />
+                                <Image Source="{local:EmbeddedImage correcticon.png}" IsVisible="False" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="6" VerticalOptions="Center" >
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding Legalization.SignState}" Value="3">
+                                            <Setter Property="IsVisible" Value="True" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                                <Label Text="Pendiente o Sin Aprobar" TextColor="Red" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" HorizontalTextAlignment="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Legalization.SignState}" Value="3">
+                                            <Setter Property="IsVisible" Value="False" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </PullToRefresh:PullToRefreshLayout>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage>
+        <StackLayout Style="{StaticResource background}" VerticalOptions="FillAndExpand">
+            <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10"
+                VerticalOptions="Start">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <StackLayout>
+                    <Label Text="Gastos incurridos" Style="{StaticResource title}" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                    <ListView ItemsSource="{Binding Legalization.LegalizationItems, Mode=TwoWay}" SelectedItem="{Binding SelectedLegalizationItem,Mode=TwoWay}" HasUnevenRows="True" SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                    <ViewCell.View>
+                                        <Frame OutlineColor="White" CornerRadius="10" Padding="5" Margin="6,4,9,4">
+                                            <Frame.HasShadow>
+                                                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                            </Frame.HasShadow>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" TextColor="Red" FontAttributes="Bold"  >
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Currency.Symbol}"/>
+                                                            <Span Text="{Binding Amount, StringFormat='{0:F2}'}"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Label Text="{Binding SpentOn, StringFormat='{0:dd/MM/yyyy}' }" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalTextAlignment="End" />
+                                                <Label Text="{Binding PaidTo}" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" />
+                                                <Label Text="{Binding ExpenseType}" Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="Center" >
+                                                    <Label.Triggers>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="Undefined">
+                                                            <Setter Property="Text" Value="● Cat. No Definida"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="PhoneFaxBeeper">
+                                                            <Setter Property="Text" Value="● Teléfono, Fax, Beeper"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="InternetCable">
+                                                            <Setter Property="Text" Value="● Internet y Cable"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="CarRent">
+                                                            <Setter Property="Text" Value="● Alquiler Vehículos"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="Shipping">
+                                                            <Setter Property="Text" Value="● Fletes y Acarreos"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="FuelOil">
+                                                            <Setter Property="Text" Value="● Combustible y Lubricantes"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="TicketsParkingToll">
+                                                            <Setter Property="Text" Value="● Pases, Parqueos y Peajes"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="FoodHost">
+                                                            <Setter Property="Text" Value="● Alimentación y Hospedaje"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="ManteinanceEquipment">
+                                                            <Setter Property="Text" Value="● Mant. Mobiliario y Eq."/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="CarManteinance">
+                                                            <Setter Property="Text" Value="● Mant. Vehículos"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="EmployeeAttending">
+                                                            <Setter Property="Text" Value="● Atención a Funcionarios"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="ClientAttending">
+                                                            <Setter Property="Text" Value="● Atención a Clientes"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="Courier">
+                                                            <Setter Property="Text" Value="● Correos y Courier"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="PaperAndOfficeTools">
+                                                            <Setter Property="Text" Value="● Papelería y Útiles"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="Surveillance">
+                                                            <Setter Property="Text" Value="● Vigilancia"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="Cleaning">
+                                                            <Setter Property="Text" Value="● Aseo y Limpieza"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="Transport">
+                                                            <Setter Property="Text" Value="● Transporte y Encomiendas"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="Advertising">
+                                                            <Setter Property="Text" Value="● Publicidad"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="TenderProject">
+                                                            <Setter Property="Text" Value="● Licitación y Proyectos"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="ProfessionalServices">
+                                                            <Setter Property="Text" Value="● Servicios Profesionales"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="VisaOrTravelTaxes">
+                                                            <Setter Property="Text" Value="● Visas e Impuestos de Salida"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="Materials">
+                                                            <Setter Property="Text" Value="● Materiales"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="MinorTools">
+                                                            <Setter Property="Text" Value="● Herramientas Menores"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="PersonalTraining">
+                                                            <Setter Property="Text" Value="● Capacitación a Personal"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="NoDeductibleExpenses">
+                                                            <Setter Property="Text" Value="● Gastos No Deducibles"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="EmployeeTaxes">
+                                                            <Setter Property="Text" Value="● Impuesto de Rentas a Empleados"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="WarrantyEquipmentRepairing">
+                                                            <Setter Property="Text" Value="● Reparación de Equip. En Garantía"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding ExpenseType}" Value="CarTraveling">
+                                                            <Setter Property="Text" Value="● Kilometraje"/>
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                            </Grid>
+                                        </Frame>
+                                    </ViewCell.View>
+                                </local:ExtendedViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding CreateLegalizationItemCommand}" Source="{local:EmbeddedImage addicon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" Margin="0,0,3,0"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage>
+</CarouselPage>  

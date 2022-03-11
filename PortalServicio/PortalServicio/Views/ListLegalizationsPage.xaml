@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.ListLegalizationsPage">
+    <StackLayout>
+        <SearchBar Text="{Binding SearchText, Mode=TwoWay}"
+                       PlaceholderColor="LightGray"
+                       Placeholder="Buscar legalización"
+                       TextChanged="SearchTextChanged"
+                       HeightRequest="50"/>
+        <ListView ItemsSource="{Binding LegalizationsFiltered}"
+                      SelectedItem="{Binding SelectedLegalization, Mode=TwoWay}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding LoadLegalizationsCommand}"
+                      IsRefreshing="{Binding IsLoading}"
+                      ItemSelected="Handle_ItemTapped"
+                      HasUnevenRows="True"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="None" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                        <ViewCell.View>
+                            <Frame HasShadow="True" CornerRadius="10" Padding="5" Margin="6,4,9,4">
+                                <Frame.HasShadow>
+                                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                </Frame.HasShadow>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+                                        <Image Source="{local:EmbeddedImage newlabel.png}" IsVisible="{Binding CreatedToday}" Aspect="AspectFit" WidthRequest="35" HeightRequest="35" VerticalOptions="Center"/>
+                                        <ctrl:ImageButton Source="{local:EmbeddedImage bookmarkadd.png}" Command="{Binding Source={x:Reference Page}, Path=BindingContext.AddBookmarkCommand}" CommandParameter="{Binding .}" Aspect="AspectFit" WidthRequest="35" HeightRequest="35" >
+                                            <ctrl:ImageButton.Triggers>
+                                                <DataTrigger TargetType="ctrl:ImageButton" Binding="{Binding IsLocallySaved}" Value="True">
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="ctrl:ImageButton" Binding="{Binding IsLocallySaved}" Value="False">
+                                                    <Setter Property="IsVisible" Value="True"/>
+                                                </DataTrigger>
+                                            </ctrl:ImageButton.Triggers>
+                                        </ctrl:ImageButton>
+                                        <ctrl:ImageButton Source="{local:EmbeddedImage bookmarkdelete.png}" Command="{Binding Source={x:Reference Page}, Path=BindingContext.DeleteBookmarkCommand}" CommandParameter="{Binding .}" Aspect="AspectFit" WidthRequest="35" HeightRequest="35" >
+                                            <ctrl:ImageButton.Triggers>
+                                                <DataTrigger TargetType="ctrl:ImageButton" Binding="{Binding IsLocallySaved}" Value="True">
+                                                    <Setter Property="IsVisible" Value="True"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="ctrl:ImageButton" Binding="{Binding IsLocallySaved}" Value="False">
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </ctrl:ImageButton.Triggers>
+                                        </ctrl:ImageButton>
+                                    </StackLayout>
+                                    <Label Text="{Binding TicketNumber}" Style="{StaticResource clickable}" FontSize="Large" Grid.Column="0" Grid.Row="0"/>
+                                    <Label Text="{Binding Client.Alias}" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell.View>
+                    </local:ExtendedViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

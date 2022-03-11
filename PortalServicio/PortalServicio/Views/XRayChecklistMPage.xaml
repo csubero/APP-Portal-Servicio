@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PortalServicio.XRayChecklistMPage"
+             x:Name="MasterPage"
+             xmlns:local="clr-namespace:PortalServicio"
+             Title="Revisión de rayos X">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Options" Command="{Binding SaveChangesCommand}" Text="Guardar" Icon="SaveIcon.png" Order="Primary" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <local:XRChecklistGeneral Title="General" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}"/>
+    <local:XRChecklistManteinance Title="Limpieza y Verificación" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}"/>
+    <local:XRChecklistVoltage Title="Voltajes" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}"/>
+    <local:XRChecklistRadiation Title="Medición de radiación" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}"/>
+    <local:XRChecklistCalibration Title="Calibración" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}"/>
+    <local:XRChecklistSoftware Title="Software" BindingContext="{Binding Path=BindingContext, Source={x:Reference Name=MasterPage},Mode=TwoWay}"/>
+</TabbedPage>

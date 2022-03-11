@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sig="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.SignReportPage"
+             Title="Cierre de boleta">
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <StackLayout>
+                        <sig:SignaturePadView
+                    x:Name="signature"
+                    StrokeWidth="3"
+                    StrokeColor="Black"
+                    ClearText="Borrar"
+                    CaptionText="Firma del Cliente"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="White"     
+                    WidthRequest="300"
+                    HeightRequest="150"/>
+                        <Label Text="Ingrese su nombre" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                        <Entry Text="{Binding AttendeeName, Mode=TwoWay}" Placeholder="Nombre" PlaceholderColor="#e86d6d"  WidthRequest="100" HorizontalTextAlignment="Center"/>
+                        <Label Text="Ingrese su identificación" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                        <Entry Text='{Binding AttendeeId, Mode=TwoWay}' Placeholder="Identificación" PlaceholderColor="#e86d6d"  WidthRequest="100" HorizontalTextAlignment="Center"/>
+                        <Label Text="Correo para recepción de reporte" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                        <Entry Text="{Binding AttendeeEmail, Mode=TwoWay}" Placeholder="Correo Electrónico" WidthRequest="120" Keyboard="Email" HorizontalTextAlignment="Center"/>
+                        <Label Text="¿Cómo califica nuestro servicio?" FontAttributes="Bold" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                        <rating:SfRating Value="{Binding Rating1, Mode=TwoWay}" HorizontalOptions="Center" Precision="Half" WidthRequest="200" ItemSize="35">
+                            <rating:SfRating.RatingSettings>
+                                <rating:SfRatingSettings RatedFill="#E7BA2C" RatedStroke="Black"/>
+                            </rating:SfRating.RatingSettings>
+                        </rating:SfRating>
+                        <Label HorizontalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="¿Cómo califica a nuestros técnicos?"/>
+                        <rating:SfRating Value="{Binding Rating2, Mode=TwoWay}" HorizontalOptions="Center" Precision="Half" WidthRequest="200" ItemSize="35">
+                            <rating:SfRating.RatingSettings>
+                                <rating:SfRatingSettings RatedFill="#E7BA2C" Grid.Column="0" Grid.Row="3"  RatedStroke="Black"/>
+                            </rating:SfRating.RatingSettings>
+                        </rating:SfRating>
+                        <StackLayout>
+                            <Label HorizontalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="¿Cómo podemos mejorar?"/>
+                            <ctrl:GlassEditor Text="{Binding Feedback, Mode=TwoWay}" Placeholder="Su valiosa opinión"/>
+                        </StackLayout>
+                        <Label Text="¿Cliente está de acuerdo con cotización?" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                        <Switch IsToggled="{Binding AttendeeAgrees, Mode=TwoWay}" HorizontalOptions="Center"/>
+                        <Label Text="¿Requiere Valoración?" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                        <Switch IsToggled="{Binding SelectedServiceTicket.RequiresQuotation, Mode=TwoWay}" HorizontalOptions="Center"/>
+                        <!--<ctrl:ImageButton Source="{local:EmbeddedImage okicon.png}" IsBusy="{Binding IsBusy}" Command="{Binding SendFeedbackCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" Margin="10,0,10,0"/>-->
+                        <Image Source="{local:EmbeddedImage signicon.png}" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" Margin="0,10,0,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SignReportCommand}" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" IsRunning="True"/>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

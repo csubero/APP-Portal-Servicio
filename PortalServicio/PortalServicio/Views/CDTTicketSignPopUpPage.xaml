@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:sig="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:local="clr-namespace:PortalServicio"        
+             x:Class="PortalServicio.Views.CDTTicketSignPopUpPage">
+    <!--Animations use example-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="False"/>
+    </pages:PopupPage.Animation>
+    <pages:PopupPage.Content>
+        <!--<AbsoluteLayout>
+        <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">-->
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+            <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Nombre" VerticalTextAlignment="Center"  Grid.Row="0" Grid.Column="0" />
+                        <Entry Text="{Binding Name, Mode=TwoWay}" Placeholder="Requerido" Grid.Row="0" Grid.Column="1" PlaceholderColor="PaleVioletRed"/>
+                        <Label Text="Identificación" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" />
+                        <Entry Text="{Binding Identification, Mode=TwoWay}" Placeholder="Requerido" Grid.Row="1" Grid.Column="1" PlaceholderColor="PaleVioletRed"/>
+                    </Grid>
+                    <sig:SignaturePadView
+                    x:Name="signature"
+                    StrokeWidth="3"
+                    StrokeColor="Black"
+                    ClearText="Borrar"
+                    CaptionText="Firma del Cliente"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="White"     
+                    WidthRequest="300"
+                    HeightRequest="150"/>
+                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding SignTicketCommand}" Source="{local:EmbeddedImage signicon.png}" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        <!--</StackLayout>-->
+        <!--<StackLayout x:Name="loadingIndicator" BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" IsRunning="{Binding IsBusy}"/>
+        </StackLayout>-->
+        <!--</AbsoluteLayout>-->
+    </pages:PopupPage.Content>
+</pages:PopupPage>

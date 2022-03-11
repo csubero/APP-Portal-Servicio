@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio.MarkupExtensions"
+             x:Class="PortalServicio.App">
+    <Application.Resources>
+
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <local:IntToColorConverter x:Key="ColorConverter" />
+            <local:TriStateColorConverter x:Key="TriStateColorConverter" />
+            <Style x:Key="background" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="#3D55AF"/>
+            </Style>
+            <Style x:Key="title" TargetType="Label">
+                <Setter Property="TextColor" Value="#E7BA2C"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+            <Style x:Key="subtitle" TargetType="Label">
+                <Setter Property="TextColor" Value="#E7BA2C"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            <Style x:Key="clickable" TargetType="Label">
+                <Setter Property="TextColor" Value="#3D55AF"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            <Style x:Key="mainButtonColor" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#E7BA2C"/>
+            </Style>
+            <Style x:Key="SecondaryColor" TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="#E7BA2C"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

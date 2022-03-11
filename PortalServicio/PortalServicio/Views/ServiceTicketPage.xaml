@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             xmlns:PullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             x:Class="PortalServicio.ServiceTicketPage"
+             Title="Boleta de servicio">
+    <!--Basic Information Page-->
+    <ContentPage>
+        <ContentPage.Resources>
+            <ResourceDictionary>
+                <convert:IsNotNullObject x:Key="IsNotNullObject"/>
+            </ResourceDictionary>
+        </ContentPage.Resources>
+        <PullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+                                           RefreshCommand="{Binding ReloadServiceTicketCommand}"
+                                           IsRefreshing="{Binding IsBusy}"
+                                           RefreshColor="#3D55AF">
+            <ScrollView>
+                <StackLayout Style="{StaticResource background}" VerticalOptions="FillAndExpand">
+                    <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                        </Frame.HasShadow>
+                        <StackLayout>
+                            <Label Text="{Binding SelectedServiceTicket.TicketNumber, StringFormat='Boleta de servicio No {0}'}" Style="{StaticResource title}" HorizontalOptions="Center" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Creado el" WidthRequest="90" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.CreationDate,StringFormat='{0:dd/MM/yyyy, h\\:mm tt}' }" FontSize="Medium" HorizontalOptions="StartAndExpand" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Tipo" WidthRequest="110" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.Type.Name}" FontSize="Medium" Margin="0,0,10,0" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Inicio" WidthRequest="90" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.Started, StringFormat='{0:dd/MM/yyyy, h\\:mm tt}'}" FontSize="Medium" Margin="0,0,10,0" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Fin" WidthRequest="90" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.Finished, StringFormat='{0:dd/MM/yyyy, h\\:mm tt}'}" FontSize="Medium" Margin="0,0,10,0" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Se rebaja almuerzo" WidthRequest="90"  FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label FontSize="Medium" VerticalOptions="Center" Margin="0,0,10,0" >
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding SelectedServiceTicket.HadLunch}" Value="True">
+                                            <Setter Property="Text" Value="Sí"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding SelectedServiceTicket.HadLunch}" Value="False">
+                                            <Setter Property="Text" Value="No"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Técnico 1" Grid.Column="0" Grid.Row="0" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.Technicians[0].Name, Mode=OneWay}" Grid.Column="1" Grid.Row="0" FontSize="Medium" VerticalOptions="Center"/>
+                                <Label Text="Técnico 2" Grid.Column="0" Grid.Row="1" IsVisible="{Binding SelectedServiceTicket.Technicians[1], Converter={StaticResource IsNotNullObject}}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.Technicians[1].Name}" IsVisible="{Binding SelectedServiceTicket.Technicians[1], Converter={StaticResource IsNotNullObject}}" Grid.Column="1" Grid.Row="1" FontSize="Medium" VerticalOptions="Center"/>
+                                <Label Text="Técnico 3" Grid.Column="0" Grid.Row="2" IsVisible="{Binding SelectedServiceTicket.Technicians[2], Converter={StaticResource IsNotNullObject}}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.Technicians[2].Name}" IsVisible="{Binding SelectedServiceTicket.Technicians[2], Converter={StaticResource IsNotNullObject}}" Grid.Column="1" Grid.Row="2" FontSize="Medium" VerticalOptions="Center"/>
+                                <Label Text="Técnico 4" Grid.Column="0" Grid.Row="3" IsVisible="{Binding SelectedServiceTicket.Technicians[3], Converter={StaticResource IsNotNullObject}}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.Technicians[3].Name}" IsVisible="{Binding SelectedServiceTicket.Technicians[3], Converter={StaticResource IsNotNullObject}}" Grid.Column="1" Grid.Row="3" FontSize="Medium" VerticalOptions="Center"/>
+                                <Label Text="Tecnico 5" Grid.Column="0" Grid.Row="4" IsVisible="{Binding SelectedServiceTicket.Technicians[4], Converter={StaticResource IsNotNullObject}}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedServiceTicket.Technicians[4].Name}" IsVisible="{Binding SelectedServiceTicket.Technicians[4], Converter={StaticResource IsNotNullObject}}" Grid.Column="1" Grid.Row="4" FontSize="Medium" VerticalOptions="Center"/>
+                            </Grid>
+                            <Label Text="{Binding SelectedServiceTicket.Title}" Style="{StaticResource title}" FontSize="Medium" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            <Label Text="Trabajos Realizados" Style="{StaticResource title}" FontSize="Medium" Margin="0,10,0,10" HorizontalOptions="Center" />
+                            <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="#a0a0a0"       
+               Margin="10,10,10,10"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                                <Frame.HasShadow>
+                                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                </Frame.HasShadow>
+                                <Label Text="{Binding SelectedServiceTicket.WorkDone}" FontSize="Medium" TextColor="White" VerticalOptions="FillAndExpand"/>
+                            </Frame>
+                            <Frame
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="#efefef"       
+               Margin="0,10,0,10"
+                VerticalOptions="FillAndExpand">
+                                <Frame.HasShadow>
+                                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                </Frame.HasShadow>
+                                <StackLayout>
+                                    <Label Text="Fotos Adjuntas" FontAttributes="Bold" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                    <ListView ItemsSource="{Binding PhotosTaken}" SelectedItem="{Binding SelectedPhoto,Mode=TwoWay}" HeightRequest="{Binding PhotoListHeight}" ItemSelected="OpenPhoto">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding Filename}" VerticalOptions="Center" HeightRequest="20" HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </local:ExtendedViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </PullToRefresh:PullToRefreshLayout>
+    </ContentPage>
+    <!--Materials Information Page-->
+    <ContentPage>
+        <ContentPage.Resources>
+            <ResourceDictionary>
+                <convert:ConverterDestination x:Key="ConverterDestination"/>
+            </ResourceDictionary>
+        </ContentPage.Resources>
+        <StackLayout Style="{StaticResource background}" VerticalOptions="FillAndExpand">
+            <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,10"
+               CornerRadius="10"
+                VerticalOptions="Start">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <StackLayout>
+                    <Label Text="Productos Utilizados" Style="{StaticResource title}" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                    <ListView ItemsSource="{Binding SelectedServiceTicket.ProductsUsed}" ItemSelected="Handle_ItemTapped" HasUnevenRows="True" SeparatorVisibility="None">
+                        <ListView.Header>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Producto" Style="{StaticResource subtitle}" HorizontalOptions="Start"/>
+                                <Label Text="Cantidad" Style="{StaticResource subtitle}" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                    <ViewCell.View>
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout HorizontalOptions="Start">
+                                                <Label Text="{Binding Product.Id}" Style="{StaticResource clickable}"/>
+                                                <Label Text="{Binding Product.Name}" FontSize="Medium"/>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Treatment, StringFormat='Estado: {0}'}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                                    <Label Text="{Binding Destination}" IsVisible="{Binding Destination, Converter=ConverterDestination}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Label Text="{Binding Count}" MinimumWidthRequest="50"  FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell.View>
+                                </local:ExtendedViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage>
+</CarouselPage>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:local="clr-namespace:PortalServicio"
+             x:Class="PortalServicio.Views.MyLegalizationsPage"
+             Title="Mis legalizaciones">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding CreateNewLegalizationCommand}" Text="Crear" Icon="addnewic.png" Order="Primary" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ctrl:SearchList PlaceholderText="Filtrar legalizaciones"
+                             PlaceholderColor="LightGray"
+                             SearchText="{Binding SearchText, Mode=TwoWay}"
+                             OnSearchTextChangeCommand="{Binding FilterLegalizationsCommand}"
+                             OnSelectCommand="{Binding OpenLegalizationCommand}"
+                             SearchCommand="{Binding FilterLegalizationsCommand}"
+                             ItemSource="{Binding LegalizationsFiltered}"
+                             SelectedItem="{Binding SelectedLegalization, Mode=TwoWay}"
+                             IsPullToRefreshEnabled="True"
+                             IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
+                             RefreshCommand="{Binding LoadLegalizationsCommand}"
+                             VerticalOptions="FillAndExpand"
+                             >
+            <ctrl:SearchList.ItemTemplate>
+                <DataTemplate>
+                    <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                        <ViewCell.View>
+                            <Frame OutlineColor="White" CornerRadius="10" Padding="5" Margin="6,4,9,4">
+                                <Frame.HasShadow>
+                                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                </Frame.HasShadow>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <!--Icono tipo-->
+                                        <ColumnDefinition Width="2*" />
+                                        <!--Numero y Monto-->
+                                        <ColumnDefinition Width="*" />
+                                        <!--Estado-->
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" Margin="5" VerticalOptions="Center">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding LegalizationType}" Value="100000000">
+                                                <Setter Property="Source" Value="{local:EmbeddedImage cashicon.png}"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding LegalizationType}" Value="100000001">
+                                                <Setter Property="Source" Value="{local:EmbeddedImage travelicon.png}"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding LegalizationType}" Value="100000002">
+                                                <Setter Property="Source" Value="{local:EmbeddedImage transfericon.png}"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image" Binding="{Binding LegalizationType}" Value="100000003">
+                                                <Setter Property="Source" Value="{local:EmbeddedImage debitcardicon.png}"/>
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+                                    <Label Text="{Binding LegalizationNumber, StringFormat='No. {0}'}" VerticalTextAlignment="Center" Style="{StaticResource clickable}" FontSize="Large" Grid.Column="1" Grid.Row="0"/>
+                                    <Label FontSize="Medium" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="1">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding SignState}" Value="0">
+                                                <Setter Property="Text" Value="Requiere tu firma" />
+                                                <Setter Property="TextColor" Value="Red" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding SignState}" Value="1">
+                                                <Setter Property="Text" Value="Req Firma Gerente" />
+                                                <Setter Property="TextColor" Value="Yellow" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding SignState}" Value="2">
+                                                <Setter Property="Text" Value="Req Aprobación" />
+                                                <Setter Property="TextColor" Value="Yellow" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding SignState}" Value="3">
+                                                <Setter Property="Text" Value="Aprobado" />
+                                                <Setter Property="TextColor" Value="Green" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <Label Text="{Binding MoneyPaid}" FontSize="Medium" Grid.Column="2" Grid.Row="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Legalizado:" FontAttributes="Bold"/>
+                                                <Span Text="{Binding MoneyCurrency.Symbol}" TextColor="Green"/>
+                                                <Span Text="{Binding MoneyPaid, StringFormat='{0:F2}'}" TextColor="Green"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Text="{Binding MoneyPending}" FontSize="Medium" Grid.Column="2" Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Solicitado:" FontAttributes="Bold"/>
+                                                <Span Text="{Binding MoneyCurrency.Symbol}" TextColor="Green"/>
+                                                <Span Text="{Binding MoneyRequested, StringFormat='{0:F2}'}" TextColor="Green"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </Frame>
+                        </ViewCell.View>
+                    </local:ExtendedViewCell>
+                </DataTemplate>
+            </ctrl:SearchList.ItemTemplate>
+        </ctrl:SearchList>
+    </StackLayout>
+</ContentPage>

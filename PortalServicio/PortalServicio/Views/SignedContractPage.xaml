@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.SignedContractPage"
+             Title="{Binding ContractNumber, StringFormat='Contrato No. {0}'}">
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Style="{StaticResource background}">
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <StackLayout>
+                        <Label Text="Pago del contrato" FontAttributes="Bold" FontSize="Large"/>
+                        <gauge:SfCircularGauge WidthRequest="200" HeightRequest="200">
+                            <gauge:SfCircularGauge.Scales>
+                                <gauge:Scale NumberOfDecimalDigits="0" LabelOffset="0.65" ScaleStartOffset="0.8" ScaleEndOffset="1" StartAngle="135" StartValue="0" EndValue="100" Interval="25" SweepAngle="270"
+                                             RimThickness="100" RimColor="CadetBlue" ShowRim="True" LabelPostfix="%" MinorTicksPerInterval="1" LabelColor="#FF777777" LabelFontSize="18" >
+                                    <gauge:Scale.Pointers>
+                                        <gauge:RangePointer x:Name="pointerPaid" EnableAnimation="False" Value="0" StartOffset="0.81" EndOffset="0.99" RangeCap="End" Color="MediumVioletRed"  Thickness="100"/>
+                                    </gauge:Scale.Pointers>
+                                </gauge:Scale>
+                            </gauge:SfCircularGauge.Scales>
+                            <gauge:SfCircularGauge.Headers>
+                                <gauge:Header x:Name="headerGaugePaidP" Position="0.5,0.5"  TextSize="18" FontAttributes="Bold"  ForegroundColor="Gray"/>
+                                <gauge:Header x:Name="headerGaugePaidV" Position="0.5,0.6"  TextSize="18" FontAttributes="Bold"  ForegroundColor="Gray"/>
+                            </gauge:SfCircularGauge.Headers>
+                        </gauge:SfCircularGauge>
+                    </StackLayout>
+                </Frame>
+                <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <StackLayout>
+                        <Label Text="Avance del contrato" FontAttributes="Bold" FontSize="Large"/>
+                        <gauge:SfCircularGauge WidthRequest="200" HeightRequest="200">
+                            <gauge:SfCircularGauge.Scales>
+                                <gauge:Scale NumberOfDecimalDigits="0" LabelOffset="0.65" ScaleStartOffset="0.8" ScaleEndOffset="1" StartAngle="135" StartValue="0" EndValue="100" Interval="25" SweepAngle="270"
+                                             RimThickness="100" RimColor="CadetBlue" ShowRim="True" LabelPostfix="%" MinorTicksPerInterval="1" LabelColor="#FF777777" LabelFontSize="18" >
+                                    <gauge:Scale.Pointers>
+                                        <gauge:RangePointer x:Name="pointerProgress" EnableAnimation="False" Value="0" StartOffset="0.81" EndOffset="0.99" RangeCap="End" Color="MediumVioletRed"  Thickness="100"/>
+                                    </gauge:Scale.Pointers>
+                                </gauge:Scale>
+                            </gauge:SfCircularGauge.Scales>
+                            <gauge:SfCircularGauge.Headers>
+                                <gauge:Header x:Name="headerGaugeProgressP" Position="0.5,0.5"  TextSize="18" FontAttributes="Bold"  ForegroundColor="Gray"/>
+                            </gauge:SfCircularGauge.Headers>
+                        </gauge:SfCircularGauge>
+                    </StackLayout>
+                </Frame>
+                <Frame
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"                     
+               CornerRadius="10" VerticalOptions="Start">
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                    </Frame.HasShadow>
+                    <StackLayout>
+                        <Label Text="Trabajadores Aprobados" Style="{StaticResource title}" HorizontalOptions="Center" />
+                        <StackLayout>
+                            <ListView ItemsSource="{Binding Workers}" VerticalOptions="Center" ItemSelected="Handle_WorkerTapped" HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                            <ViewCell.View>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <StackLayout WidthRequest="4" Margin="8,3,5,3" BackgroundColor="{Binding Accepted, Converter={StaticResource TriStateColorConverter}}"/>
+                                                    <StackLayout>
+                                                        <Label Text="{Binding Name}"
+                                       Style="{StaticResource clickable}"
+                                       FontSize="Large"
+                                       Margin="10,10,0,0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                                        <Label Text="{Binding Identification, StringFormat='Identificación: {0}'}"
+                                   FontSize="Medium"
+                                    Margin="10,0,0,10"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </ViewCell.View>
+                                        </local:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <ctrl:GlassEntry Placeholder="Enter text here" WidthRequest="150" HorizontalOptions="Center"/>
+                <ctrl:GlassEditor Placeholder="placeholder de prueba" WidthRequest="150" HorizontalOptions="Center"/>
+
+                <Button Text="Prueba API Web" Clicked="Test"/>
+            </StackLayout>
+        </ScrollView>
+    </AbsoluteLayout>
+</ContentPage>

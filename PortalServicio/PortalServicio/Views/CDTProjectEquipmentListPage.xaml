@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:control="clr-namespace:PortalServicio.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PortalServicio.Views.CDTProjectEquipmentListPage">
+    <StackLayout Style="{StaticResource background}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Text="Equipos del proyecto" Style="{StaticResource title}" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+            <ListView ItemsSource="{Binding CDT.ProjectEquipment}"
+                      SelectedItem="{Binding SelectedProjectEquipment, Mode=TwoWay}"
+                      ItemSelected="TapProjectEquipment"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="None"
+                      Grid.Column="0" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <Frame HasShadow="True" CornerRadius="10" Padding="5" Margin="6,4,9,4" Grid.Row="0" Grid.Column="0">
+                                    <Frame.HasShadow>
+                                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                    </Frame.HasShadow>
+                                    <Grid Margin="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                                            <!--<Image Source="{local:EmbeddedImage newlabel.png}" IsVisible="{Binding CreatedToday}" Aspect="AspectFit" WidthRequest="35" HeightRequest="35" VerticalOptions="Center"/>-->
+                                        </StackLayout>
+                                        <Label Text="{Binding Product.Id}" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding Product.Name}" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="1"/>
+                                        <Label Text="{Binding Remaining, StringFormat='Quedan {0} unidades restantes'}" IsVisible="{Binding IsStillAvailable}" Grid.Column="0" Grid.Row="2" HorizontalOptions="Center"/>
+                                        <Label Text="Ya no quedan unidades para retirar" TextColor="Red" IsVisible="{Binding IsOutOfStock}" Grid.Column="0" Grid.Row="2" HorizontalOptions="Center"/>
+                                        <control:StyledStepper IsMAXEnable="True" Value="{Binding Requested, Mode=TwoWay}" StepperColor="#3399ff"  Minimum="0" Maximum="{Binding Remaining}" IsVisible="{Binding IsStillAvailable}" Grid.Column="0" Grid.Row="3" HorizontalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </local:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <control:ImageButton Command="{Binding SaveChangesCommand}" IsBusy="{Binding IsBusy}" Source="{local:EmbeddedImage saveicon.png}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+            <control:ImageButton Command="{Binding OrderEquipmentCommand}" IsBusy="{Binding IsBusy}" Source="{local:EmbeddedImage boxaddicon.png}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

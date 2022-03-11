@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.ListCDTsPage"
+             x:Name="Page"
+             Title="Listado de CDTs">
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <ctrl:SearchList PlaceholderText="Buscar CDT o cliente"
+                             PlaceholderColor="LightGray"
+                             SearchText="{Binding SearchText, Mode=TwoWay}"
+                             OnSearchTextChangeCommand="{Binding FilterCDTsCommand}"
+                             OnSelectCommand="{Binding OpenCDTCommand}"
+                             SearchCommand="{Binding SearchCDTsCommand}"
+                             ItemSource="{Binding CDTsFiltered}"
+                             SelectedItem="{Binding SelectedCDT, Mode=TwoWay}"
+                             IsPullToRefreshEnabled="True"
+                             RefreshCommand="{Binding LoadCDTsCommand}"
+                             IsRefreshing="{Binding IsLoading}"
+                             VerticalOptions="FillAndExpand">
+                <ctrl:SearchList.ItemTemplate>
+                    <DataTemplate>
+                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <Frame OutlineColor="White" CornerRadius="10" Padding="5" Margin="6,4,9,4">
+                                    <Frame.HasShadow>
+                                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                    </Frame.HasShadow>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Number}" Style="{StaticResource clickable}" FontSize="Large" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding Client.Alias}" FontSize="Medium" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </local:ExtendedViewCell>
+                    </DataTemplate>
+                </ctrl:SearchList.ItemTemplate>
+            </ctrl:SearchList>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

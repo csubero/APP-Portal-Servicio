@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.FeedbackPopUpPage">
+    <!--Animations use example-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+      PositionIn="Top"
+      PositionOut="Bottom"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="800"
+      EasingIn="BounceIn"
+      EasingOut="CubicOut"
+      HasBackgroundAnimation="False"/>
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="0" Margin="0">
+            <Frame Margin="30" HasShadow="True" OutlineColor="Transparent" CornerRadius="10">
+                <StackLayout HorizontalOptions="Center"  Padding="10">
+                    <Label Text="Cómo califica nuestro servicio?" FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <rating:SfRating Value="{Binding Rating1, Mode=TwoWay}" HorizontalOptions="Center" Precision="Half" WidthRequest="200" ItemSize="35">
+                        <rating:SfRating.RatingSettings>
+                            <rating:SfRatingSettings RatedFill="#E7BA2C" RatedStroke="Black"/>
+                        </rating:SfRating.RatingSettings>
+                    </rating:SfRating>
+                    <Label HorizontalTextAlignment="Center" FontSize="Large" Text="Cómo califica a nuestros técnicos?"/>
+                    <rating:SfRating Value="{Binding Rating2, Mode=TwoWay}" HorizontalOptions="Center" Precision="Half" WidthRequest="200" ItemSize="35">
+                        <rating:SfRating.RatingSettings>
+                            <rating:SfRatingSettings RatedFill="#E7BA2C" Grid.Column="0" Grid.Row="3"  RatedStroke="Black"/>
+                        </rating:SfRating.RatingSettings>
+                    </rating:SfRating>
+                    <StackLayout>
+                        <Label HorizontalTextAlignment="Center" FontSize="Large" Text="Cómo podemos mejorar?"/>
+                        <ctrl:GlassEditor Text="{Binding Feedback, Mode=TwoWay}" Placeholder="Su valiosa opinión"/>
+                    </StackLayout>
+                    <ctrl:ImageButton Source="{local:EmbeddedImage okicon.png}" IsBusy="{Binding IsBusy}" Command="{Binding SendFeedbackCommand}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" Margin="10,0,10,0"/>
+                    <!--<Image Source="{local:EmbeddedImage okicon.png}" Margin="0,10,0,10" Aspect="AspectFit" HeightRequest="50" WidthRequest="50">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SendFeedbackCommand}"  NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>-->
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>

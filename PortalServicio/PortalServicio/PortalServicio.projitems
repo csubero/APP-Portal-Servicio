@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>93b8eacc-1a52-4af6-bbf8-bdf949bf0d59</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>PortalServicio</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AttachedProperties\AttachedCollapse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CollapseBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ExtendedButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\SearchList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\DTO_LegalizationLookUp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\ConverterDatetimeToTimespan.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertProcessType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicLegalizationItemType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicLegalizationType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CDTTicket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Company.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\EquipmentRequestOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ExtraEquipmentRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LegalizationCompany.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LegalizationItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LineEquipmentRequestOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LineMaterialRequestOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\MaterialRequestOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ProjectEquipment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ProjectMaterial.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TechnicianRegistry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddExtraEquipmentViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddTechnicianRegistryViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CDTTicketSignPopUpViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CDTTicketSummaryViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CDTTicketViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CompanyViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CreateNewLegalizationItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CreateNewLegalizationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EquipmentRequestOrderViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ExtraEquipmentRequestViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LegalizationItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LegalizationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LineEquipmentRequestOrderViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LineMaterialRequestOrderViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MaterialRequestOrderViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MyLegalizationSummaryViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MyLegalizationsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectEquipmentViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectMaterialViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TechnicianRegistryViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AddExtraEquipment.xaml.cs">
+      <DependentUpon>AddExtraEquipment.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AddTechnicalServiceCostPopUpPage.xaml.cs">
+      <DependentUpon>AddTechnicalServiceCostPopUpPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AddTechnicianRegistryPopUpPage.xaml.cs">
+      <DependentUpon>AddTechnicianRegistryPopUpPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CasePage.xaml.cs">
+      <DependentUpon>CasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTEquipmentExtraRequestsPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTEquipmentExtraRequestsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTEquipmentOrderRequestsPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTEquipmentOrderRequestsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTMaterialOrdersPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTMaterialOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTProjectEquipmentListPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTProjectEquipmentListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTProjectMaterials.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTProjectMaterials.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTSummaryPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTSummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Connectivity\Config.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connectivity\CRMConnector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connectivity\OrganizationProxy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connectivity\RestService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Contracts\Types.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\GlassEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\GlassEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ImageButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\StepProgressBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\StyledStepper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTTicketListPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTTicketListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTTicketSignPopUpPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTTicketSignPopUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTTicketSummaryPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTTicketSummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CDTTicketTechniciansRegistryListPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CDTTicketTechniciansRegistryListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CreateNewLegalizationItemPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CreateNewLegalizationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CreateTicketPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)CrmSdk\Microsoft.Crm.Sdk.Messages.Samples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmSdk\Microsoft.Crm.Sdk.Samples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmSdk\Microsoft.Xrm.Sdk.Messages.Samples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmSdk\Microsoft.Xrm.Sdk.Metadata.Query.Samples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmSdk\Microsoft.Xrm.Sdk.Metadata.Samples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmSdk\Microsoft.Xrm.Sdk.Query.Samples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmSdk\Microsoft.Xrm.Sdk.Samples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmSdk\Microsoft.Xrm.Sdk.Utility.Samples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\DTO_CDTLookUp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\DTO_ClientPartial.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\DTO_IncidentLookUp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\EditableServiceTicketPage.xaml.cs">
+      <DependentUpon>EditableServiceTicketPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ProgressBarAnimationAttached.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FeedbackPopUpPage.xaml.cs">
+      <DependentUpon>FeedbackPopUpPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ListCasesPage.xaml.cs">
+      <DependentUpon>ListCasesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ListCDTsPage.xaml.cs">
+      <DependentUpon>ListCDTsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ListContractsPage.xaml.cs">
+      <DependentUpon>ListContractsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ListLegalizationsPage.xaml.cs">
+      <DependentUpon>ListLegalizationsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ListProgramCasesPage.xaml.cs">
+      <DependentUpon>ListProgramCasesPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\ConverterDestination.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\CustomColor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DestinationConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertHWState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertLeadState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertPayment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertPossesionState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertRadState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertScreenType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertTechnology.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\DicConvertVisitNumber.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\EmbeddedImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\IntToColorConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\IsNotNullObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\TreatmentConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MarkupExtensions\TriStateColorConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Category.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CDT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Client.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Contract.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Contractor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ContractorWorker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Coord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CrudTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Currency.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Incident.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IncidentTechnician.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Legalization.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LogTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\MaterialYRepuesto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Note.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\PaymentCondition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Product.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ProductStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceTicket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceTicketTechnician.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Subtype.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SystemUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Technician.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MyLegalizationsPage.xaml.cs">
+      <DependentUpon>MyLegalizationsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MyLegalizationSummary.xaml.cs">
+      <DependentUpon>MyLegalizationSummary.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\OperationsPage.xaml.cs">
+      <DependentUpon>OperationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ProgramCasePage.xaml.cs">
+      <DependentUpon>ProgramCasePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ProgressBasicPopUpPage.xaml.cs">
+      <DependentUpon>ProgressBasicPopUpPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Renders\ExtendedViewCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AddProductPopUpPage.xaml.cs">
+      <DependentUpon>AddProductPopUpPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ConnectivityHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\EmbeddedResourcesServices.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\GeoLocationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IClear.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ICommonDeviceFuncs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ISave.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\NotificationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PageService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PDFServices.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ServiceTicketPage.xaml.cs">
+      <DependentUpon>ServiceTicketPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Connectivity\SQLiteDB.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SignedContractPage.xaml.cs">
+      <DependentUpon>SignedContractPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SignReportPage.xaml.cs">
+      <DependentUpon>SignReportPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\UnsignedContractPage.xaml.cs">
+      <DependentUpon>UnsignedContractPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddProductViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddWorkCostsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CategoryViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CDTSummaryViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CDTViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ClientViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CoordViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CreateTicketViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CurrencyViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EditableServiceTicketViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FeedbackPopUpViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IncidentViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IPageService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ListCasesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ListCDTsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ListProgramCasesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MaterialYRepuestoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NoteViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProductStorageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProductViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProgramCaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProgressBasicPopUpViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ReadOnlyServiceTicketViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ServiceTicketViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SignReportViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SubtypeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SystemUserViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TechnicianViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\XRayChecklistMPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\XRayChecklistMPage.xaml.cs">
+      <DependentUpon>XRayChecklistMPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\XRChecklistManteinance.xaml.cs">
+      <DependentUpon>XRChecklistManteinance.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\XRChecklistCalibration.xaml.cs">
+      <DependentUpon>XRChecklistCalibration.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\XRChecklistGeneral.xaml.cs">
+      <DependentUpon>XRChecklistGeneral.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\XRChecklistRadiation.xaml.cs">
+      <DependentUpon>XRChecklistRadiation.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\XRChecklistSoftware.xaml.cs">
+      <DependentUpon>XRChecklistSoftware.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\XRChecklistVoltage.xaml.cs">
+      <DependentUpon>XRChecklistVoltage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CasePage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EditableServiceTicketPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CreateTicketPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ListCasesPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\OperationsPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ServiceTicketPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AddProductPopUpPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\signicon.png">
+      <LogicalName>signicon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ProgramCasePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ListContractsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ListProgramCasesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\UnsignedContractPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SignedContractPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\FeedbackPopUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\loading_base.png">
+      <LogicalName>loadingbase.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\loading_pg.png">
+      <LogicalName>loadingpg.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\spclogo.png">
+      <LogicalName>spclogo.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\pdf\certified.jpg">
+      <LogicalName>certified.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\pdf\docfootercr.jpg">
+      <LogicalName>docfootercr.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\pdf\docfootergt.jpg">
+      <LogicalName>docfootergt.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\pdf\doclogo.jpg">
+      <LogicalName>doclogo.jpg</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\background\fondo5.jpg">
+      <LogicalName>fondo5.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\background\fondo6.jpg">
+      <LogicalName>fondo6.jpg</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\addicon.png">
+      <LogicalName>addicon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\closeicon.png">
+      <LogicalName>closeicon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\confdocicon.png">
+      <LogicalName>confdocicon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\newicon.png">
+      <LogicalName>newicon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\okicon.png">
+      <LogicalName>okicon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\wrenchicon.png">
+      <LogicalName>wrenchicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\toolicon.png">
+      <LogicalName>toolicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\cdticon.png">
+      <LogicalName>cdticon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\mapicon.png">
+      <LogicalName>mapicon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\saveicon.png">
+      <LogicalName>saveicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\gpsicon.png">
+      <LogicalName>gpsicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\docicon.png">
+      <LogicalName>docicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\workingicon.png">
+      <LogicalName>workingicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\logouticon.png">
+      <LogicalName>logouticon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\warningicon.png">
+      <LogicalName>warningicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\employeeicon.png">
+      <LogicalName>employeeicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\downloadicon.png">
+      <LogicalName>downloadicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\scheduleicon.png">
+      <LogicalName>scheduleicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\ticketicon.png">
+      <LogicalName>ticketicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SignReportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\cameraicon.png">
+      <LogicalName>cameraicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AddTechnicalServiceCostPopUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTSummaryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\XRayChecklistMPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\XRChecklistManteinance.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\XRChecklistGeneral.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\XRChecklistVoltage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\XRChecklistRadiation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\XRChecklistCalibration.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\XRChecklistSoftware.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ProgressBasicPopUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ListLegalizationsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ListCDTsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTProjectEquipmentListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTProjectMaterials.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTEquipmentOrderRequestsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTMaterialOrdersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTTicketListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTTicketSummaryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTTicketTechniciansRegistryListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AddTechnicianRegistryPopUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTEquipmentExtraRequestsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AddExtraEquipment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CDTTicketSignPopUpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\radiationicon.png">
+      <LogicalName>radiationicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\newlabel.png">
+      <LogicalName>newlabel.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\bookmarkadd.png">
+      <LogicalName>bookmarkadd.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\bookmarkdelete.png">
+      <LogicalName>bookmarkdelete.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\pdf\checkicon.jpg">
+      <LogicalName>checkicon.jpg</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\addworkerion.png">
+      <LogicalName>addworkerion.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\correcticon.png">
+      <LogicalName>correcticon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\boxaddicon.png">
+      <LogicalName>boxaddicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\arrowdownicon.png">
+      <LogicalName>arrowdownicon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\arrowupicon.png">
+      <LogicalName>arrowupicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\editicon.png">
+      <LogicalName>editicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\deleteicon.png">
+      <LogicalName>deleteicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\lefticon.png">
+      <LogicalName>lefticon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\righticon.png">
+      <LogicalName>righticon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MyLegalizationsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MyLegalizationSummary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\transfericon.png">
+      <LogicalName>transfericon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\debitcardicon.png">
+      <LogicalName>debitcardicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\cashicon.png">
+      <LogicalName>cashicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\travelicon.png">
+      <LogicalName>travelicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CreateNewLegalizationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CreateNewLegalizationItemPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\moneyicon.png">
+      <LogicalName>moneyicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\icons\refreshicon.png" >
+	      <LogicalName>refreshicon.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.CreateTicketPage"
+             Title="Crear nuevo Ticket">
+    <AbsoluteLayout>
+        <StackLayout Style="{StaticResource background}" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All">
+            <Frame 
+               HasShadow="True" OutlineColor="Transparent" BackgroundColor="White" Margin="10,0,10,0" CornerRadius="10">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <StackLayout>
+                    <Label Text="Seleccionar Cliente" Style="{StaticResource title}" HorizontalOptions="Center" />
+                    <SearchBar Text="{Binding SearchText, Mode=TwoWay}" SearchCommand="{Binding SearchClientCommand}" PlaceholderColor="LightGray" Placeholder="Buscar cliente" HeightRequest="50"/>
+                    <ListView IsVisible="{Binding IsSearchDone}" ItemsSource="{Binding PossibleClients}" SelectedItem="{Binding SelectedClient, Mode=TwoWay}" HasUnevenRows="True" ItemSelected="Handle_ItemTapped" SeparatorVisibility="None" HeightRequest="200" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                                    <ViewCell.View>
+                                        <StackLayout>
+                                            <Label Text="{Binding Alias}"
+                                       Style="{StaticResource clickable}"
+                                       FontSize="Medium"
+                                       Margin="10,10,0,0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                    </ViewCell.View>
+                                </local:ExtendedViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+            <Frame
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,0,10,0"
+               CornerRadius="10"
+               IsVisible="{Binding IsClientSelected}">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Información del ticket" Style="{StaticResource title}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
+                        <Label Text="Cliente Seleccionado" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Label Text="{Binding NewCase.Client.Alias}" HorizontalOptions="Center" FontSize="Medium" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ctrl:GlassEntry Text="{Binding NewCase.Title, Mode=TwoWay}" Placeholder="Titulo del Ticket" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                        <Label Text="Necesidad o situación" FontAttributes="Bold" FontSize="Medium" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
+                        <ctrl:GlassEditor Text="{Binding NewCase.Description, Mode=TwoWay}" Placeholder="Descripción de la solicitud" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ctrl:ImageButton Source="{local:EmbeddedImage okicon.png}" Command="{Binding CreateCaseCommand}" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        <StackLayout BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutBounds="0,0,1.01,1.01" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" IsRunning="{Binding IsBusy}"/>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

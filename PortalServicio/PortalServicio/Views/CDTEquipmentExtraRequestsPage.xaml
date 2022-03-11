@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalServicio"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             x:Class="PortalServicio.Views.CDTEquipmentExtraRequestsPage">
+    <StackLayout Style="{StaticResource background}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Text="Solicitud de equipo adicional" Style="{StaticResource title}" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+            <Frame HasShadow="True" IsVisible="False" IsEnabled="False" CornerRadius="10" Padding="5" Margin="6,4,9,4"  Grid.Column="0" Grid.Row="1">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <Frame.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding CDT.ExtraEquipment.Count}" Value="0">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </Frame.Triggers>
+                <Label HorizontalTextAlignment="Center" Text="No se han solicitado equipo adicional" FontSize="Medium"/>
+            </Frame>
+            <!--SelectedItem="{Binding SelectedTechnicianRegistry, Mode=TwoWay}"-->
+            <ListView ItemsSource="{Binding CDT.ExtraEquipment}"                      
+                      ItemSelected="SelectExtraEquipment"
+                      SelectedItem="{Binding SelectedExtraEquipment, Mode=TwoWay}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="None"
+                      HeightRequest="325"
+                      Grid.Column="0" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <Frame HasShadow="True" CornerRadius="10" Padding="5" Margin="6,4,9,4" Grid.Row="0" Grid.Column="0">
+                                    <Frame.HasShadow>
+                                        <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                                    </Frame.HasShadow>
+                                    <Grid Margin="5" VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Equipment.Id}" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                        <Label Text="{Binding Equipment.Name}" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                        <Label Text="{Binding Quantity, StringFormat='Se solicita {0} unidades'}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalTextAlignment="Center">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Quantity, Mode=OneWay}" Value="1">
+                                                    <Setter Property="Text" Value="Se solicita 1 unidad"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="No se definió tipo de proceso" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" FontSize="Medium" Margin="10,5,0,0" VerticalOptions="Center" HorizontalTextAlignment="Center">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding ProcessType, Mode=OneWay}" Value="Order">
+                                                    <Setter Property="Text" Value="Se realiza pedido"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding ProcessType, Mode=OneWay}" Value="Offer">
+                                                    <Setter Property="Text" Value="Se realiza oferta"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding ProcessType, Mode=OneWay}" Value="Free">
+                                                    <Setter Property="Text" Value="No se cobra"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="Aprobado" TextColor="Green" IsVisible="{Binding IsApproved}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" FontSize="Medium" Margin="10,5,0,0" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </local:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" IsVisible="{Binding SelectedCDTTicket.IsOpen}" Grid.Column="0" Grid.Row="3">
+                <ctrl:ImageButton Command="{Binding AddExtraEquipmentCommand}" IsBusy="{Binding IsBusy}" Source="{local:EmbeddedImage addicon.png}" Aspect="AspectFit" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

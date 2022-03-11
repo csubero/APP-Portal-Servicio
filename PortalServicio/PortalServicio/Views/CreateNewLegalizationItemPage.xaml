@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:convert="clr-namespace:PortalServicio.MarkupExtensions"
+             xmlns:ctrl="clr-namespace:PortalServicio.Controls"
+             xmlns:local="clr-namespace:PortalServicio" 
+             x:Class="PortalServicio.Views.CreateNewLegalizationItemPage"
+             Title="Nuevo Item de Legalización">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:DicLegalizationItemType x:Key="DicLegalizationItemType"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Style="{StaticResource background}" VerticalOptions="FillAndExpand">
+            <Frame 
+               HasShadow="True" OutlineColor="Transparent"  BackgroundColor="White"       
+               Margin="10,10,10,0"
+               CornerRadius="10"
+                VerticalOptions="FillAndExpand">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True"/>
+                </Frame.HasShadow>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Tipo" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" />
+                    <Picker ItemsSource="{Binding LegalizationItemTypeList }" SelectedIndex="{Binding ToAdd.ExpenseType, Converter={StaticResource DicLegalizationItemType}}" ItemDisplayBinding="{Binding Key}" Title="Tipo de Gasto" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" />
+                    <Label Text="Fecha del gasto" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="1" />
+                    <DatePicker Date="{Binding ToAdd.SpentOn, Mode=TwoWay }" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" />
+                    <Label Text="Monto del gasto" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="2" />
+                    <Entry Text="{Binding ToAdd.Amount, Mode=TwoWay}" Placeholder="Monto del gasto" Keyboard="Numeric" Grid.Column="1" Grid.Row="2" />
+                    <Label Text="{Binding ToAdd.Currency.Symbol, Mode=OneWay}" FontSize="Medium" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="2" />
+                    <!--<ActivityIndicator IsRunning="{Binding IsLoadingCurrencies}" IsVisible="{Binding IsLoadingCurrencies}" HeightRequest="40" Grid.Column="2" Grid.Row="2" />
+                    <Picker ItemsSource="{Binding AvailableCurrencies}" ItemDisplayBinding="{Binding Symbol}" SelectedItem="{Binding ToAdd.Currency, Mode=TwoWay}" Title="Divisa" IsVisible="False" Grid.Column="2" Grid.Row="2" >
+                        <Picker.Triggers>
+                            <MultiTrigger TargetType="Picker">
+                                <MultiTrigger.Conditions>
+                                    <BindingCondition Binding="{Binding IsLoadingCurrencies}" Value="False" />
+                                    <BindingCondition Binding="{Binding IsCurrenciesError}" Value="False" />
+                                </MultiTrigger.Conditions>
+                                <Setter Property="IsVisible" Value="True"/>
+                            </MultiTrigger>
+                        </Picker.Triggers>
+                    </Picker>
+                    <ctrl:ImageButton IsVisible="False" IsBusy="{Binding IsBusy}" Command="{Binding LoadCurrenciesCommand}" Source="{local:EmbeddedImage refreshicon.png}" Grid.Column="2" Grid.Row="2" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="40" HeightRequest="40">-->
+                        <!--<ctrl:ImageButton.Triggers>
+                            <MultiTrigger TargetType="ctrl:ImageButton">
+                                <MultiTrigger.Conditions>
+                                    <BindingCondition Binding="{Binding IsLoadingCurrencies}" Value="False" />
+                                    <BindingCondition Binding="{Binding IsCurrenciesError}" Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter Property="IsVisible" Value="True"/>
+                            </MultiTrigger>
+                        </ctrl:ImageButton.Triggers>
+                    </ctrl:ImageButton>-->
+                    <Label Text="Pagado a" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="3" />
+                    <Entry Text="{Binding ToAdd.PaidTo, Mode=TwoWay}" Placeholder="Empresa o tienda" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" />
+                    <Label Text="Factura" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="4" />
+                    <Entry Text="{Binding ToAdd.Bill, Mode=TwoWay}" Placeholder="Numero Factura" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" />
+                    <Label Text="Es un imprevisto de proyecto" VerticalTextAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" />
+                    <Switch IsToggled="{Binding ToAdd.ProjectIssue, Mode=TwoWay}" Grid.Column="2" Grid.Row="5" />
+                    <ctrl:ImageButton IsBusy="{Binding IsBusy}" Command="{Binding CreateLegalizationItemCommand}" Source="{local:EmbeddedImage saveicon.png}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="6" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="50" HeightRequest="50"/>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

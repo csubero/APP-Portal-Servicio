@@ -1,0 +1,528 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syncfusion.SfPdfViewer.XForms</name>
+    </assembly>
+    <members>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs">
+            <summary>
+            Provides event data for the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs.OldPageNumber">
+            <summary>
+            Gets the page number from which the navigation was initiated in <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs.NewPageNumber">
+            <summary>
+            Gets the page number to which the document is navigated to in <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs.IsLastPage">
+            <summary>
+            Returns true, if the new page number is the last page of the <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer" />, otherwise false.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs.IsFirstPage">
+            <summary>
+            Returns true, if the new updated page number is the first page of the <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer" />, otherwise false.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs.#ctor(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs"/> class with given page number. 
+            </summary>
+            <param name="pageNumber"> The number of the current page after the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageChanged"/> event occurs. </param>
+            <param name="oldPageNumber"> Gets the page number from which the navigation was initiated in <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>. </param>
+            <param name="newPageNumber"> Gets the page number to which the document is navigated to in <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>. </param>
+            <param name="isFirstPage"> Returns true, if the new updated page number is the first page of the <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer" />, otherwise false. </param>
+            <param name="isLastPage"> Returns true, if the new page number is the last page of the <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer" />, otherwise false. </param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextMatchFoundEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.TextMatchFound"/> event. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextMatchFoundEventArgs.TargetText">
+            <summary>
+            Gets the text being searched. Default value is <see cref="F:System.String.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextMatchFoundEventArgs.PageNumber">
+            <summary>
+            Gets the page number in which the current searched text instance found.
+            </summary>
+            <value>The page number.</value>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.TextMatchFoundEventArgs.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.SfPdfViewer.XForms.TextMatchFoundEventArgs"/> class with given text to be searched and a value indicating whether no match to the given text is found. 
+            </summary>
+            <param name="targetText"> The text to be searched. </param>
+            <param name="pageNumber">Page number of the in which the current searched instance found.</param>
+            <param name="bounds"> Bounds of the current searched instance.</param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextSearchCompletedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchCompleted"/> event. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSearchCompletedEventArgs.TargetText">
+            <summary>
+            Gets the text being searched. Default value is <see cref="F:System.String.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSearchCompletedEventArgs.NoMatchFound">
+            <summary>
+            Gets a value indicating whether there is no match to the text found.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSearchCompletedEventArgs.NoMoreOccurrence">
+            <summary>
+            Gets a value indicating whether there are no more occurrences of the text being searched. 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.TextSearchCompletedEventArgs.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.SfPdfViewer.XForms.TextMatchFoundEventHandler"/> class with given text to be searched and a value indicating whether no match to the given text is found. 
+            </summary>
+            <param name="targetText"> The text to be searched. </param>
+            <param name="noMoreOccurrence"> A value indicating whether there are no more occurrences of the text being searched. </param>
+            <param name="noMatchFound"> A value indicating whether there is no match to the text found. </param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextSearchInitiatedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchInitiated"/> event. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSearchInitiatedEventArgs.TargetText">
+            <summary>
+            Gets the text being searched. Default value is <see cref="F:System.String.Empty"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.TextSearchInitiatedEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.SfPdfViewer.XForms.TextSearchInitiatedEventArgs"/> class with given text to be searched and a value indicating whether no match to the given text is found. 
+            </summary>
+            <param name="targetText"> The text to be searched. </param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextSelectionCompletedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.TextSelectionCompleted"/> event. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSelectionCompletedEventArgs.PageNumber">
+            <summary>
+            Gets the current page number where the selected text resides in the PDF document
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSelectionCompletedEventArgs.PageBounds">
+            <summary>
+            Gets the bounds of the page where the selected text resides in the PDF document
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSelectionCompletedEventArgs.SelectedText">
+            <summary>
+            Gets the text selected in the page of the PDF document
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSelectionCompletedEventArgs.SelectedRegion">
+            <summary>
+            Gets the selected bounds of the text in the page of the PDF document
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.UnhandledConditionEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.UnhandledConditionOccurred"/> event. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.UnhandledConditionEventArgs.Title">
+            <summary>
+            Gets the title of the unhandled condition
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.UnhandledConditionEventArgs.Description">
+            <summary>
+            Gets the details of the unhandled condition
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.NamespaceDoc">
+            <summary>
+            Contains classes for creating a view control that allows displaying PDF documents.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.PageChangedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageChanged"/> event of a <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>. 
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> that is the source of the event.</param>
+            <param name="args">The <see cref="T:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.DocumentLoadedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.DocumentLoaded"/> event of a <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.  
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> that is the source of the event.</param>
+            <param name="args">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextSearchInitiatedEventHandler">
+            <summary> 
+            Represents the method that will handle the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchInitiated"/> event of a <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> that is the source of the event.</param>
+            <param name="args">The <see cref="T:Syncfusion.SfPdfViewer.XForms.TextSearchInitiatedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextSearchCompletedEventHandler">
+            <summary> 
+            Represents the method that will handle the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchCompleted"/> event of a <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> that is the source of the event.</param>
+            <param name="args">The <see cref="T:Syncfusion.SfPdfViewer.XForms.TextSearchCompletedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextMatchFoundEventHandler">
+            <summary> 
+            Represents the method that will handle the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.TextMatchFound"/> event of a <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> that is the source of the event.</param>
+            <param name="args">The <see cref="T:Syncfusion.SfPdfViewer.XForms.TextMatchFoundEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextSelectionEventHandler">
+            <summary> 
+            Represents the method that will handle the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.TextSelectionCompleted"/> event of a <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> that is the source of the event.</param>
+            <param name="args">The <see cref="T:Syncfusion.SfPdfViewer.XForms.TextSelectionCompletedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.UnhandledConditionEventHandler">
+            <summary> 
+            Represents the method that will handle the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.UnhandledConditionOccurred"/> event of a <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> that is the source of the event.</param>
+            <param name="args">The <see cref="T:Syncfusion.SfPdfViewer.XForms.UnhandledConditionEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchTextCommand">
+            <summary>
+            Defines command to find all occurrences of the given text in the PDF document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchNextTextCommand">
+            <summary>
+            Defines command to find the next occurrence of the text being searched. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchPreviousTextCommand">
+            <summary>
+            Defines command to find the previous occurrence of the text being searched. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.CancelSearchTextCommand">
+            <summary>
+            Defines command to cancel the text search operation. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.GoToNextPageCommand">
+            <summary>
+            Defines command to navigates to the next page of the PDF document. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.GoToPreviousPageCommand">
+            <summary>
+            Defines command to navigates to the previous page of the PDF document. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.GoToPageCommand">
+            <summary>
+            Defines command to navigates to the specified page of the PDF document. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.UnloadCommand">
+            <summary>
+            Defines command to Unload the PDF viewer control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.ViewModeCommand">
+            <summary>
+            Defines Page View mode of the PDF document
+            </summary>
+            <remarks>
+            ViewModeCommand is only applicable  for Xamarin.Forms.UWP in desktop mode.
+            </remarks>
+        </member>
+        <member name="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageChanged">
+            <summary>
+            Occurs when the value of <see cref="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageNumber"/> property changes.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.DocumentLoaded">
+            <summary>
+            Occurs when a PDF document is finished loading to <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer" />. 
+            </summary>
+        </member>
+        <member name="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchInitiated">
+            <summary>
+            Occurs when a text search operation is initiated.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchCompleted">
+            <summary>
+            Occurs when a text search operation is completed.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.TextMatchFound">
+            <summary>
+            Occurs when a match for the searched text found.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.TextSelectionCompleted">
+            <summary>
+            Occurs when text selection is completed.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.UnhandledConditionOccurred">
+            <summary>
+            Occurs when an unhandled condition occurs.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> class.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageNumber">
+            <summary>
+            Gets or sets the number of the current page being displayed in <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer" />.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageViewMode">
+            <summary>
+            Specifies zoom mode
+            </summary>
+            /// <remarks>
+            PageViewMode is only applicable  for Xamarin.Forms.UWP in desktop mode.
+            </remarks>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageViewMode.Default">
+            <summary>
+            Displays with detault.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageViewMode.FitPage">
+            <summary>
+            Fits the entire page in the viewer.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageViewMode.FitWidth">
+            <summary>
+            Fits the width of the page in the viewer.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.ViewMode">
+            <summary>
+            Get or set the PDF document page view mode in PDF viewer.
+            </summary>
+            <value>
+            Default page view mode value is Normal.
+            </value>      
+            <remarks>
+            View mode is applicable only  for Xamarin.Forms.UWP in desktop mode.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.IsTextSelectionEnabled">
+            <summary>
+            Gets or sets a value that indicates whether text selection is enabled.
+            </summary>
+            <value>
+            <b>false</b> if text selection is disabled; otherwise, <b>true</b>.The default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.IsTextSearchEnabled">
+            <summary>
+            Gets or sets a value that indicates whether text search is enabled.
+            </summary>
+            <value>
+            <b>false</b> if text search is disabled; otherwise, <b>true</b>.The default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.TextSearchSettings">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.SfPdfViewer.XForms.TextSearchSettings" /> associated with the text search operations. 
+            </summary>   
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.TextSelectionSettings">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.SfPdfViewer.XForms.TextSelectionSettings" /> associated with text selection.
+            </summary> 
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SelectedText">
+            <summary>
+            Gets the text selected in the page of the PDF document
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.MaximumZoomPercentage">
+            <summary>
+            Gets or Sets the maximum zoom percentage. The default value is 400 for Android and 300 for iOS and UWP.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageCount">
+            <summary>
+            Gets the total page count of the PDF document loaded to <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.InputFileStream">
+            <summary>
+            Gets and Sets the input file stream of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer" />. 
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageCountProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageCount"/> bindable property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.ItemSourceProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.ItemsSource"/> bindable property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageNumberProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageNumber"/> bindable property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.MaximumZoomPercentageProperty">
+            <summary>
+            IIdentifies the <see cref="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.MaximumZoomPercentage"/> bindable property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.InputFileStreamProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.InputFileStream"/> bindable property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SelectedTextProperty">
+            <summary>
+            Identifies the SelectedText bindable property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.ViewModeProperty">
+            <summary>
+            Gets or sets the <see cref="P:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.ViewMode"/>  of the <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/>. It is a bindable property.
+            </summary>
+            <value>
+            A bindable property that gets or sets the PDF document page View mode in the PDF viewer. 
+            </value>
+            <remarks>
+            ViewModeProperty is applicable only for Xamarin.Forms.UWP in desktop mode.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.Unload">
+            <summary>
+            Unloads the PDF viewer control. 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.LoadDocument(System.IO.Stream)">
+            <summary>
+            Loads a PDF document to <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> from the specified stream.
+            </summary>
+            <param name="stream">The stream that contains the data of the PDF document.</param>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.GoToPage(System.Int32)">
+            <summary>
+            Navigates to the specified page of the PDF document.
+            </summary>
+            <param name="pageNumber">The number of the page to navigate to.</param>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.GoToNextPage">
+            <summary>
+            Navigates to the next page of the PDF document.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.GoToPreviousPage">
+            <summary>
+            Navigates to the previous page of the PDF document.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchNext">
+            <summary>
+            Finds the next occurrence of the text being searched. 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchPrevious">
+            <summary>
+            Finds the previous occurrence of the text being searched.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchNext(System.String)">
+            <summary>
+            Finds the next occurrence of the text being searched. 
+            </summary>
+            <param name="text">The text to be searched.</param>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchPrevious(System.String)">
+            <summary>
+            Finds the previous occurrence of the text being searched.
+            </summary>
+            <param name="text">The text to be searched.</param>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.SearchText(System.String)">
+            <summary>
+            Finds all occurrences of the given text in the PDF document.
+            </summary>
+            <param name="text">The text to be searched.</param>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.CancelSearch">
+            <summary>
+            Cancels the text Search operation.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.OnPageChanged(System.Object,Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.PageChanged"/>  event.
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> that is the source of the event. </param>
+            <param name="e">The <see cref="T:Syncfusion.SfPdfViewer.XForms.PageChangedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.OnDocumentLoaded(System.Object,System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Syncfusion.SfPdfViewer.XForms.SfPdfViewer.DocumentLoaded"/>  event
+            </summary>
+            <param name="sender">The instance of <see cref="T:Syncfusion.SfPdfViewer.XForms.SfPdfViewer"/> which is the source of the event. </param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextSelectionSettings">
+            <summary>
+             Specifies and allows editing the information about how text is selected. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSelectionSettings.TextSelectionColor">
+            <summary>
+            Gets or sets the color being used to highlight the text during selection 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSelectionSettings.TextSelectionHandleColor">
+            <summary>
+            Gets or sets the color of selection handle appeared during text selection
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSelectionSettings.ShowContextMenu">
+            <summary>
+            Gets or sets a value that indicates whether context menu is visible. Default value is true.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfPdfViewer.XForms.TextSearchSettings">
+            <summary>
+            Specifies and allows editing the information about how the highlight of the text search instance to be made. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSearchSettings.CurrentInstanceColor">
+            /// <summary>
+            Gets or Sets the ARGB <see cref="T:Xamarin.Forms.Color"/> value for the current instance of the text being searched. Default value is <see cref="!:Color.FromRgba(0, 0, 255, 80)"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfPdfViewer.XForms.TextSearchSettings.OtherInstanceColor">
+            <summary>
+            Gets or Sets the ARGB <see cref="T:Xamarin.Forms.Color"/> value for all other instances expect the current instance of the text found. Default value is <see cref="!:Color.FromRgba(0, 0, 255, 50)"/>.
+            </summary>
+        </member>
+    </members>
+</doc>
