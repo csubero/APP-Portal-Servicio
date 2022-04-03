@@ -6101,14 +6101,17 @@ namespace PortalServicio.Droid
 			// aapt resource value: 0x7F02005A
 			public const int design_snackbar_background = 2130837594;
 			
-			// aapt resource value: 0x7F010011
-			public const int Down = 2130771985;
+			// aapt resource value: 0x7F010012
+			public const int Down = 2130771986;
 			
 			// aapt resource value: 0x7F010003
 			public const int icon = 2130771971;
 			
 			// aapt resource value: 0x7F010004
 			public const int iconold = 2130771972;
+			
+			// aapt resource value: 0x7F010005
+			public const int icon_ = 2130771973;
 			
 			// aapt resource value: 0x7F020053
 			public const int ic_audiotrack_dark = 2130837587;
@@ -6608,8 +6611,8 @@ namespace PortalServicio.Droid
 			// aapt resource value: 0x7F02005B
 			public const int navigation_empty_icon = 2130837595;
 			
-			// aapt resource value: 0x7F010012
-			public const int Next = 2130771986;
+			// aapt resource value: 0x7F010013
+			public const int Next = 2130771987;
 			
 			// aapt resource value: 0x7F02005C
 			public const int notification_action_background = 2130837596;
@@ -6647,29 +6650,29 @@ namespace PortalServicio.Droid
 			// aapt resource value: 0x7F020065
 			public const int notify_panel_notification_icon_bg = 2130837605;
 			
-			// aapt resource value: 0x7F010013
-			public const int Prev = 2130771987;
-			
-			// aapt resource value: 0x7F010005
-			public const int RadiationTab = 2130771973;
+			// aapt resource value: 0x7F010014
+			public const int Prev = 2130771988;
 			
 			// aapt resource value: 0x7F010006
-			public const int RoundedEntry = 2130771974;
+			public const int RadiationTab = 2130771974;
 			
 			// aapt resource value: 0x7F010007
-			public const int SaveIcon = 2130771975;
+			public const int RoundedEntry = 2130771975;
 			
 			// aapt resource value: 0x7F010008
-			public const int signicon = 2130771976;
+			public const int SaveIcon = 2130771976;
 			
 			// aapt resource value: 0x7F010009
-			public const int Splash = 2130771977;
+			public const int signicon = 2130771977;
 			
 			// aapt resource value: 0x7F010010
-			public const int splash_screen = 2130771984;
+			public const int Splash = 2130771984;
 			
-			// aapt resource value: 0x7F010014
-			public const int Up = 2130771988;
+			// aapt resource value: 0x7F010011
+			public const int splash_screen = 2130771985;
+			
+			// aapt resource value: 0x7F010015
+			public const int Up = 2130771989;
 			
 			static Drawable()
 			{
