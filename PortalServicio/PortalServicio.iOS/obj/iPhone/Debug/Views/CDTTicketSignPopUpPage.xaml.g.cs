@@ -13,8 +13,8 @@
 namespace PortalServicio.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\espin\\OneDrive\\Escritorio\\APP Portal Servicio\\PortalServicio\\PortalServi" +
-        "cio\\Views\\CDTTicketSignPopUpPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\PC\\Documents\\code\\APP-Portal-Servicio\\PortalServicio\\PortalServicio\\View" +
+        "s\\CDTTicketSignPopUpPage.xaml")]
     public partial class CDTTicketSignPopUpPage : global::Rg.Plugins.Popup.Pages.PopupPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

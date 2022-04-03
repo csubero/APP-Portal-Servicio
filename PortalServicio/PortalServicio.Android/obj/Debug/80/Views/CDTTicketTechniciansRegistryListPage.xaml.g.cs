@@ -13,8 +13,8 @@
 namespace PortalServicio.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\espin\\OneDrive\\Escritorio\\APP Portal Servicio\\PortalServicio\\PortalServi" +
-        "cio\\Views\\CDTTicketTechniciansRegistryListPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\PC\\Documents\\code\\APP-Portal-Servicio\\PortalServicio\\PortalServicio\\View" +
+        "s\\CDTTicketTechniciansRegistryListPage.xaml")]
     public partial class CDTTicketTechniciansRegistryListPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

@@ -13,8 +13,8 @@
 namespace PortalServicio {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\espin\\OneDrive\\Escritorio\\APP Portal Servicio\\PortalServicio\\PortalServi" +
-        "cio\\Views\\UnsignedContractPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\PC\\Documents\\code\\APP-Portal-Servicio\\PortalServicio\\PortalServicio\\View" +
+        "s\\UnsignedContractPage.xaml")]
     public partial class UnsignedContractPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

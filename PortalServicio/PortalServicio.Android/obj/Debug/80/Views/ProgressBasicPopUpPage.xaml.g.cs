@@ -13,8 +13,8 @@
 namespace PortalServicio {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\espin\\OneDrive\\Escritorio\\APP Portal Servicio\\PortalServicio\\PortalServi" +
-        "cio\\Views\\ProgressBasicPopUpPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\PC\\Documents\\code\\APP-Portal-Servicio\\PortalServicio\\PortalServicio\\View" +
+        "s\\ProgressBasicPopUpPage.xaml")]
     public partial class ProgressBasicPopUpPage : global::Rg.Plugins.Popup.Pages.PopupPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

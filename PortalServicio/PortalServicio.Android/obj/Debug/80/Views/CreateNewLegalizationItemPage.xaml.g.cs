@@ -13,8 +13,8 @@
 namespace PortalServicio.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\espin\\OneDrive\\Escritorio\\APP Portal Servicio\\PortalServicio\\PortalServi" +
-        "cio\\Views\\CreateNewLegalizationItemPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\PC\\Documents\\code\\APP-Portal-Servicio\\PortalServicio\\PortalServicio\\View" +
+        "s\\CreateNewLegalizationItemPage.xaml")]
     public partial class CreateNewLegalizationItemPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

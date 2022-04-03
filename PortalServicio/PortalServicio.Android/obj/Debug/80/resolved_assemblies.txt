@@ -1,117 +1,117 @@
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\PortalServicio.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\CarouselView.FormsPlugin.Abstractions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\CarouselView.FormsPlugin.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Com.Android.DeskClock.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Com.ViewPagerIndicator.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\FormsViewGroup.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Java.Interop.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Microsoft.CSharp.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Mono.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Mono.Android.Export.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\mscorlib.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Newtonsoft.Json.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Connectivity.Abstractions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Connectivity.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.CurrentActivity.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Geolocator.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Media.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Permissions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Refractored.XamForms.PullToRefresh.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Refractored.XamForms.PullToRefresh.Droid.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Rg.Plugins.Popup.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Rg.Plugins.Popup.Droid.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Rg.Plugins.Popup.Platform.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SignaturePad.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SignaturePad.Forms.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLite-net.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLiteNetExtensions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLiteNetExtensionsAsync.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.batteries_green.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.batteries_v2.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.core.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.lib.e_sqlite3.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.Compression.Portable.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.DocIO.Portable.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.OfficeChart.Portable.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.Pdf.Portable.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfGauge.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfGauge.XForms.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfGauge.XForms.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfPdfViewer.XForms.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfPdfViewer.XForms.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfRating.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfRating.XForms.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfRating.XForms.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Core.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.IO.Compression.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Net.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Net.Http.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Serialization.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.Linq.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.Serialization.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Toasts.Forms.Plugin.Abstractions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Toasts.Forms.Plugin.Droid.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Annotations.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Compat.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Core.UI.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Core.Utils.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Design.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Fragment.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Media.Compat.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Transition.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v4.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.AppCompat.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.CardView.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.MediaRouter.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.Palette.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Forms.Core.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Forms.Platform.Android.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Forms.Platform.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Forms.Xaml.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\netstandard.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Data.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Numerics.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Transactions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.IO.Compression.FileSystem.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ComponentModel.Composition.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Web.Services.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ObjectModel.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Resources.ResourceManager.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.IO.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Numerics.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.XmlDocument.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.XDocument.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Collections.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Globalization.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Threading.Tasks.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Diagnostics.Debug.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Serialization.Primitives.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Reflection.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ComponentModel.TypeConverter.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Dynamic.Runtime.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Linq.Expressions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Linq.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Serialization.Formatters.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Text.RegularExpressions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.ReaderWriter.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Text.Encoding.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Extensions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Threading.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Reflection.Extensions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Reflection.Primitives.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Text.Encoding.Extensions.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Collections.Concurrent.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.XmlSerializer.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Diagnostics.Tools.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Mono.Security.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ServiceModel.Internals.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ServiceModel.dll
-C:\Users\espin\OneDrive\Escritorio\APP Portal Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.IdentityModel.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\PortalServicio.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\CarouselView.FormsPlugin.Abstractions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\CarouselView.FormsPlugin.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Com.Android.DeskClock.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Com.ViewPagerIndicator.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\FormsViewGroup.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Java.Interop.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Microsoft.CSharp.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Mono.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Mono.Android.Export.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\mscorlib.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Newtonsoft.Json.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Connectivity.Abstractions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Connectivity.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.CurrentActivity.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Geolocator.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Media.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Plugin.Permissions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Refractored.XamForms.PullToRefresh.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Refractored.XamForms.PullToRefresh.Droid.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Rg.Plugins.Popup.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Rg.Plugins.Popup.Droid.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Rg.Plugins.Popup.Platform.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SignaturePad.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SignaturePad.Forms.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLite-net.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLiteNetExtensions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLiteNetExtensionsAsync.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.batteries_green.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.batteries_v2.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.core.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.Compression.Portable.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.DocIO.Portable.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.OfficeChart.Portable.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.Pdf.Portable.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfGauge.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfGauge.XForms.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfGauge.XForms.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfPdfViewer.XForms.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfPdfViewer.XForms.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfRating.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfRating.XForms.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Syncfusion.SfRating.XForms.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Core.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.IO.Compression.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Net.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Net.Http.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Serialization.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.Linq.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.Serialization.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Toasts.Forms.Plugin.Abstractions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Toasts.Forms.Plugin.Droid.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Annotations.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Compat.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Core.UI.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Design.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Fragment.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Transition.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v4.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.CardView.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.MediaRouter.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.Palette.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Forms.Core.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Forms.Platform.Android.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Forms.Platform.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Xamarin.Forms.Xaml.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\netstandard.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Data.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Numerics.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Transactions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.IO.Compression.FileSystem.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ComponentModel.Composition.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Web.Services.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ObjectModel.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Resources.ResourceManager.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.IO.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Numerics.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.XmlDocument.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.XDocument.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Collections.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Globalization.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Threading.Tasks.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Diagnostics.Debug.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Serialization.Primitives.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Reflection.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ComponentModel.TypeConverter.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Dynamic.Runtime.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Linq.Expressions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Linq.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Serialization.Formatters.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Text.RegularExpressions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.ReaderWriter.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Text.Encoding.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Runtime.Extensions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Threading.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Reflection.Extensions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Reflection.Primitives.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Text.Encoding.Extensions.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Collections.Concurrent.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Xml.XmlSerializer.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.Diagnostics.Tools.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\Mono.Security.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ServiceModel.Internals.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.ServiceModel.dll
+C:\Users\PC\Documents\code\APP-Portal-Servicio\PortalServicio\PortalServicio.Android\obj\Debug\80\android\assets\System.IdentityModel.dll
